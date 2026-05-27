@@ -1,0 +1,99 @@
+/**
+ * Configuración Maestra de la Invitación (Senior Version)
+ * Centraliza diseño, contenido y metadatos para SEO/Accesibilidad.
+ */
+
+export const invitationData = {
+  // Ajustes de diseño global (Inyectados vía CSS Variables o Tailwind)
+  settings: {
+    theme: {
+      primary: '#c5a059', // Oro
+      secondary: '#f9f7f2', // Crema
+      accent: '#2c2c2c', // Oscuro
+      fonts: {
+        titles: "'Playfair Display', serif",
+        body: "'Montserrat', sans-serif"
+      }
+    },
+    language: 'es',
+    seo: {
+      title: "Invitación de Boda - Juan & María",
+      description: "Acompáñanos a celebrar nuestra unión matrimonial el 31 de diciembre.",
+      ogImage: "/assets/og-image.jpg"
+    }
+  },
+
+  event: {
+    groom: {
+      name: "Juan",
+      lastName: "Pérez",
+      parents: "Padres de Juan"
+    },
+    bride: {
+      name: "María",
+      lastName: "García",
+      parents: "Padres de María"
+    },
+    date: {
+      iso: "2026-12-31T18:00:00",
+      display: "Jueves, 31 de Diciembre",
+      year: "2026",
+      time: "18:00 hs"
+    },
+    location: {
+      ceremony: {
+        name: "Parroquia Nuestra Señora",
+        address: "Calle Principal 123, Ciudad",
+        googleMaps: "https://goo.gl/maps/example1",
+        time: "18:00 hs"
+      },
+      party: {
+        name: "Salón de Eventos Gala",
+        address: "Av. Las Heras 456, Ciudad",
+        googleMaps: "https://goo.gl/maps/example2",
+        time: "21:00 hs"
+      }
+    }
+  },
+
+  features: {
+    countdown: {
+      enabled: true,
+      labels: { d: "Días", h: "Hs", m: "Min", s: "Seg" }
+    },
+    music: {
+      url: "/assets/music/wedding-theme.mp3",
+      title: "Perfect - Ed Sheeran"
+    },
+    rsvp: {
+      deadline: "2026-12-15",
+      phone: "5491112345678",
+      fields: {
+        name: "Nombre y Apellido",
+        guests: "Acompañantes",
+        diet: "Restricciones alimentarias (ej. Celíaco, Vegano)",
+        message: "Mensaje especial"
+      },
+      whatsappTemplate: "¡Hola {groom} y {bride}! Confirmo m asistencia.\n\n👤 *Nombre:* {name}\n👥 *Lugar/es:* {guests}\n🍽️ *Dieta:* {diet}\n💌 *Nota:* {message}"
+    },
+    dressCode: {
+      title: "Código de Vestimenta",
+      type: "Elegante Sport",
+      description: "Queremos que estés cómodo para bailar toda la noche."
+    },
+    gift: {
+      title: "Regalo",
+      description: "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un presente...",
+      bankData: {
+        bank: "Banco Global",
+        alias: "BODA.JUAN.MARIA",
+        cbu: "12345678901234567890"
+      }
+    },
+    gallery: [
+      { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc", caption: "Nuestro primer viaje" },
+      { url: "https://images.unsplash.com/photo-1519741497674-611481863552", caption: "El compromiso" },
+      { url: "https://images.unsplash.com/photo-1519225421980-715bd0215aed", caption: "Un día especial" }
+    ]
+  }
+};
