@@ -3,13 +3,17 @@
  * Centraliza diseño, contenido y metadatos para SEO/Accesibilidad.
  */
 
+/**
+ * Configuración Maestra de la Invitación: Xiomy-lu & Carlos
+ */
+
 export const invitationData = {
-    // Ajustes de diseño global (Inyectados vía CSS Variables o Tailwind)
     settings: {
         theme: {
-            primary: '#c5a059', // Oro
-            secondary: '#f9f7f2', // Crema
-            accent: '#2c2c2c', // Oscuro
+            primary: '#A87B96', 
+            secondary: '#C49CB4', 
+            cream: '#E2CBD8', 
+            accent: '#1F2937',
             fonts: {
                 titles: "'Playfair Display', serif",
                 body: "'Montserrat', sans-serif"
@@ -17,41 +21,63 @@ export const invitationData = {
         },
         language: 'es',
         seo: {
-            title: "Invitación de Boda - Juan & María",
-            description: "Acompáñanos a celebrar nuestra unión matrimonial el 31 de diciembre.",
+            title: "Xiomy-lu & Carlos - ¡Nuestra Boda!",
+            description: "Acompáñanos a celebrar nuestra unión el 8 de agosto de 2026.",
             ogImage: "/assets/og-image.jpg"
         }
     },
 
     event: {
+        quote: {
+            text: "El amor no tiene que ser perfecto, solo tiene que ser real.",
+            verse: "Nuestra Historia"
+        },
+        family: {
+            bride: {
+                label: "Padres de la Novia",
+                parents: ["Luisa Antezana Gutarra", "Carlos Valderrama Delgadillo"]
+            },
+            groom: {
+                label: "Padres del Novio",
+                parents: ["Lily Nieto de Mamani", "Eusebio Mamani Cárdenas"]
+            },
+            godparents: {
+                label: "Padrinos de Boda",
+                people: ["Berta Ramos Meneses", "Jaime Puycón Panta"]
+            }
+        },
+        itinerary: [
+            { time: "11:30 am", event: "Ceremonia Religiosa", location: "Parroquia San Antonio de Padua" },
+            { time: "03:00 pm", event: "Ceremonia Civil", location: "La Residencia de Huachipa" },
+            { time: "04:00 pm", event: "Recepción", location: "Buffet y Fiesta" }
+        ],
         groom: {
-            name: "Juan",
-            lastName: "Pérez",
-            parents: "Padres de Juan"
+            name: "Carlos",
+            lastName: "",
         },
         bride: {
-            name: "María",
-            lastName: "García",
-            parents: "Padres de María"
+            name: "Xiomy-lu",
+            lastName: "",
         },
         date: {
-            iso: "2026-07-18T18:00:00",
-            display: "Sabado, 18 de Julio",
-            year: "2026",
-            time: "18:00 hs"
+            iso: "2026-08-08T11:30:00",
+            display: "Sábado, 08 de Agosto del 2026",
+            year: "2026"
         },
-        location: {
-            ceremony: {
-                name: "Parroquia San Francisco de Asís",
-                address: "Jirón Colón 324, Barranco 15063",
-                googleMaps: "https://maps.app.goo.gl/B1SpPxk2mWRAvL59A",
-                time: "18:00 hs"
+        locations: {
+            religious: {
+                title: "Ceremonia Religiosa",
+                time: "11:30 am",
+                name: "Parroquia San Antonio de Padua",
+                address: "Av. San Felipe 571, Jesús María - Lima",
+                googleMaps: "https://maps.app.goo.gl/..."
             },
-            party: {
-                name: "Salón de Eventos Hoross",
-                address: "Avenida, Av. Pedro de Osma 152, Barranco 15063",
-                googleMaps: "https://maps.app.goo.gl/Ss37i9m6Jha1kmAb6",
-                time: "21:00 hs"
+            civil: {
+                title: "Ceremonia Civil y Recepción",
+                time: "03:00 pm",
+                name: "La Residencia de Huachipa",
+                address: "Av. Los Cisnes Mz 1-2 Lte. 21, Huachipa - Lima",
+                googleMaps: "https://maps.app.goo.gl/..."
             }
         }
     },
@@ -63,42 +89,37 @@ export const invitationData = {
         },
         music: {
             url: "/assets/music/Goo Goo Dolls Iris.mp3",
-            title: "Perfect - Ed Sheeran"
+            title: "Iris - Goo Goo Dolls"
         },
         rsvp: {
-            deadline: "2026-07-18",
-            phone: "51933095596",
+            deadline: "2026-07-01",
+            contactName: "Gina Sosa",
+            phone: "51964616511",
             fields: {
                 name: "Nombre y Apellido",
+                attending: "¿Asistirás?",
                 guests: "Acompañantes",
-                diet: "Restricciones alimentarias (ej. Celíaco, Vegano)",
+                diet: "Restricciones alimentarias",
                 message: "Mensaje especial"
-            },
-            whatsappTemplate: "¡Hola {groom} y {bride}! Confirmo m asistencia.\n\n👤 *Nombre:* {name}\n👥 *Lugar/es:* {guests}\n🍽️ *Dieta:* {diet}\n💌 *Nota:* {message}"
+            }
         },
         dressCode: {
             title: "Código de Vestimenta",
-            type: "Elegante Sport",
-            description: "Queremos que estés cómodo para bailar toda la noche."
+            type: "FORMAL",
+            men: "Traje completo",
+            women: "Vestido largo",
+            note: "Evento Solo Adultos"
         },
         gift: {
-            title: "Regalo",
-            description: "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un presente...",
-            bankData: {
-                bank: "Banco Global",
-                alias: "BODA.JUAN.MARIA",
-                cbu: "12345678901234567890"
-            }
+            title: "Mesa de Regalos",
+            description: "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un presente, puedes hacerlo aquí:",
+            accounts: [
+                { name: "BBVA Soles", number: "0011-0119-0200485316" },
+                { name: "CCI BBVA", number: "011-119-000200485316-50" }
+            ]
         },
         gallery: [
-            { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc", caption: "Nuestro primer viaje" },
-            { url: "https://images.unsplash.com/photo-1519741497674-611481863552", caption: "El compromiso" },
-            { url: "https://images.unsplash.com/photo-1519225421980-715bd0215aed", caption: "Un día especial" }
-        ],
-        story: [
-            { date: "Enero 2021", title: "El primer café", description: "Donde todo comenzó, entre risas y nervios." },
-            { date: "Marzo 2023", title: "El gran sí", description: "Bajo las estrellas, prometimos un camino juntos." },
-            { date: "Hoy", title: "Nuestra Boda", description: "El comienzo de nuestro 'para siempre'." }
+            { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc", caption: "" }
         ]
     }
 };

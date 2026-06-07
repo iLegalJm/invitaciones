@@ -26,11 +26,11 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
           opacity: [0.2, 0.4, 0.2] 
         }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-[-20px] bg-wedding-gold/20 rounded-full blur-2xl"
+        className="absolute inset-[-20px] bg-wedding-primary/20 rounded-full blur-2xl"
       />
       
       <div className="relative w-24 h-24 filter drop-shadow-[0_8px_15px_rgba(0,0,0,0.2)]">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-wedding-gold drop-shadow-sm">
+        <svg viewBox="0 0 100 100" className="w-full h-full fill-wedding-primary drop-shadow-sm">
           {/* Forma orgánica e irregular del lacre */}
           <path d="M50 4C35 4 22 10 14 22C6 34 2 50 8 68C14 86 32 96 50 96C68 96 86 86 92 68C98 50 94 34 86 22C78 10 65 4 50 4Z" className="opacity-95" />
           <path d="M52 7C40 6 28 12 20 25C12 38 9 55 15 72C21 89 40 98 58 97C76 96 88 84 93 65C98 46 91 30 81 18C71 6 64 8 52 7Z" className="brightness-110" />
@@ -39,7 +39,7 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
           <text x="50%" y="62%" textAnchor="middle" className="fill-wedding-accent/20 font-serif italic text-4xl select-none mix-blend-multiply">
             {eventData.groom.name[0]}
           </text>
-          <text x="52%" y="60%" textAnchor="middle" className="fill-wedding-gold/80 font-serif italic text-4xl select-none">
+          <text x="52%" y="60%" textAnchor="middle" className="fill-wedding-cream/90 font-serif italic text-4xl select-none">
             {eventData.groom.name[0]}
           </text>
           
@@ -66,22 +66,22 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/linen-paper.png')]" />
           
           {/* ADORNOS DE ESQUINAS MINIMALISTAS (Sin bloques blancos) */}
-          <div className="absolute inset-8 pointer-events-none border-[1px] border-wedding-gold/10 pointer-events-none">
+          <div className="absolute inset-8 pointer-events-none border-[1px] border-wedding-primary/10 pointer-events-none">
             {/* Esquina Superior Izquierda */}
-            <div className="absolute -top-1 -left-1 w-16 h-16 border-t-2 border-l-2 border-wedding-gold" />
-            <div className="absolute -top-1 -left-1 w-4 h-4 bg-wedding-gold" />
+            <div className="absolute -top-1 -left-1 w-16 h-16 border-t-2 border-l-2 border-wedding-primary" />
+            <div className="absolute -top-1 -left-1 w-4 h-4 bg-wedding-primary" />
             
             {/* Esquina Superior Derecha */}
-            <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-wedding-gold" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-wedding-gold" />
+            <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-wedding-primary" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-wedding-primary" />
             
             {/* Esquina Inferior Izquierda */}
-            <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-wedding-gold" />
-            <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-wedding-gold" />
+            <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-wedding-primary" />
+            <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-wedding-primary" />
             
             {/* Esquina Inferior Derecha */}
-            <div className="absolute -bottom-1 -right-1 w-16 h-16 border-b-2 border-r-2 border-wedding-gold" />
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-wedding-gold" />
+            <div className="absolute -bottom-1 -right-1 w-16 h-16 border-b-2 border-r-2 border-wedding-primary" />
+            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-wedding-primary" />
           </div>
 
           <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-sm">
@@ -92,9 +92,9 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="mb-10"
             >
-              <div className="relative w-28 h-28 border-[1.5px] border-wedding-gold/30 rounded-full flex items-center justify-center p-2">
-                <div className="w-full h-full border-[1.5px] border-wedding-gold rounded-full flex items-center justify-center">
-                  <span className="text-wedding-gold font-serif text-5xl mt-2 tracking-tighter">
+              <div className="relative w-28 h-28 border-[1.5px] border-wedding-primary/30 rounded-full flex items-center justify-center p-2">
+                <div className="w-full h-full border-[1.5px] border-wedding-primary rounded-full flex items-center justify-center">
+                  <span className="text-wedding-primary font-serif text-5xl mt-2 tracking-tighter">
                     {eventData.groom.name[0]}{eventData.bride.name[0]}
                   </span>
                 </div>
@@ -106,7 +106,7 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              <span className="uppercase tracking-[0.5em] text-[11px] text-wedding-gold font-bold mb-6 block">
+              <span className="uppercase tracking-[0.5em] text-[11px] text-wedding-primary font-bold mb-6 block">
                 Nuestra Boda
               </span>
               
@@ -125,10 +125,10 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
                 <WaxSeal />
                 
                 <div className="flex flex-col items-center space-y-2">
-                  <span className="uppercase tracking-[0.4em] text-[12px] text-wedding-gold font-bold transition-all duration-300 group-hover:text-wedding-accent">
+                  <span className="uppercase tracking-[0.4em] text-[12px] text-wedding-primary font-bold transition-all duration-300 group-hover:text-wedding-accent">
                     Abrir Invitación
                   </span>
-                  <div className="w-12 h-[1px] bg-wedding-gold/40 group-hover:w-full transition-all duration-500" />
+                  <div className="w-12 h-[1px] bg-wedding-primary/40 group-hover:w-full transition-all duration-500" />
                 </div>
               </motion.button>
             </motion.div>

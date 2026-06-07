@@ -25,13 +25,13 @@ export const RSVPForm = ({ rsvpConfig, eventData }) => {
       // Construir mensaje de WhatsApp
       const attendingText = formData.attending === 'si' ? '✅ SÍ asistiré' : '❌ No podré asistir';
       
-      let messageText = `¡Hola! Soy *${formData.name}*.\n\n${attendingText}\n👥 *Acompañantes:* ${formData.guests}`;
+      let messageText = `¡Hola *${rsvpConfig.contactName}*! Soy *${formData.name}*.\n\n${attendingText}\n👥 *Acompañantes:* ${formData.guests}`;
       
-      if (formData.diet.trim()) {
+      if (formData.diet && formData.diet.trim()) {
         messageText += `\n🍽️ *Dieta:* ${formData.diet.trim()}`;
       }
       
-      if (formData.message.trim()) {
+      if (formData.message && formData.message.trim()) {
         messageText += `\n💌 *Nota:* ${formData.message.trim()}`;
       }
       
