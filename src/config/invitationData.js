@@ -10,9 +10,9 @@
 export const invitationData = {
     settings: {
         theme: {
-            primary: '#5E1929', 
-            secondary: '#8F5260', 
-            cream: '#FAF3E0', 
+            primary: '#5E1929',
+            secondary: '#8F5260',
+            cream: '#FAF3E0',
             accent: '#EBD9D9',
             fonts: {
                 titles: "'Playfair Display', serif",
@@ -47,10 +47,10 @@ export const invitationData = {
             }
         },
         itinerary: [
-            { time: "11:30 am", event: "Ceremonia Religiosa", location: "Parroquia San Antonio de Padua" },
-            { time: "03:00 pm", event: "Ceremonia Civil", location: "La Residencia de Huachipa" },
-            { time: "04:30 pm", event: "Almuerzo de Celebración", location: "La Residencia de Huachipa" },
-            { time: "04:00 pm", event: "Recepción", location: "Buffet y Fiesta" }
+            { time: "11:30 am", event: "Ceremonia Religiosa", location: "Parroquia San Antonio de Padua", icono: "iglesia" },
+            { time: "03:00 pm", event: "Ceremonia Civil", location: "La Residencia de Huachipa", icono: "civil" },
+            { time: "04:00 pm", event: "Recepción", location: "Buffet y Fiesta", icono: "brindis" },
+            { time: "04:30 pm", event: "Almuerzo de Celebración", location: "La Residencia de Huachipa", icono: "comida" }
         ],
         groom: {
             name: "Carlos",
@@ -89,7 +89,7 @@ export const invitationData = {
             labels: { d: "Días", h: "Hs", m: "Min", s: "Seg" }
         },
         music: {
-            url: "/assets/music/Goo Goo Dolls Iris.mp3",
+            url: "/assets/music/CANCIÓN NOVIOS.mp3",
             title: "Iris - Goo Goo Dolls"
         },
         rsvp: {
