@@ -28,9 +28,9 @@ const CountdownAndFamily = ({ data, settings }) => {
   }, [data.date.iso]);
 
   const TimeBox = ({ value, label }) => (
-    <div className="flex flex-col items-center bg-wedding-secondary/20 backdrop-blur-sm border border-wedding-primary/10 p-4 rounded-lg min-w-[70px] md:min-w-[100px]">
+    <div className="flex flex-col items-center bg-wedding-cream/50 backdrop-blur-sm border border-wedding-primary/10 p-4 rounded-lg min-w-[70px] md:min-w-[100px] shadow-sm">
       <span className="text-2xl md:text-3xl font-serif text-wedding-primary">{value}</span>
-      <span className="text-[10px] uppercase tracking-widest text-wedding-accent/60">{label}</span>
+      <span className="text-[10px] uppercase tracking-widest text-wedding-secondary font-bold mt-1">{label}</span>
     </div>
   );
 
@@ -51,7 +51,7 @@ const CountdownAndFamily = ({ data, settings }) => {
             <TimeBox value={timeLeft.s} label="Seg" />
           </div>
           
-          <button className="px-6 py-2 border border-wedding-primary text-wedding-primary uppercase text-xs tracking-widest hover:bg-wedding-primary hover:text-white transition-colors duration-300">
+          <button className="px-6 py-2 border border-wedding-primary text-wedding-primary uppercase text-xs tracking-widest hover:bg-wedding-primary hover:text-wedding-cream transition-colors duration-300">
             Agregar a Calendario
           </button>
         </motion.div>
@@ -73,7 +73,7 @@ const CountdownAndFamily = ({ data, settings }) => {
               <h3 className="font-serif text-wedding-primary uppercase tracking-widest text-sm font-bold">
                 {data.family.bride.label}
               </h3>
-              <div className="text-wedding-accent/80 font-sans text-lg space-y-1">
+              <div className="text-wedding-dark font-sans text-lg space-y-1">
                 {data.family.bride.parents.map((parent, i) => (
                   <p key={i}>{parent}</p>
                 ))}
@@ -85,7 +85,7 @@ const CountdownAndFamily = ({ data, settings }) => {
               <h3 className="font-serif text-wedding-primary uppercase tracking-widest text-sm font-bold">
                 {data.family.groom.label}
               </h3>
-              <div className="text-wedding-accent/80 font-sans text-lg space-y-1">
+              <div className="text-wedding-dark font-sans text-lg space-y-1">
                 {data.family.groom.parents.map((parent, i) => (
                   <p key={i}>{parent}</p>
                 ))}
@@ -97,7 +97,7 @@ const CountdownAndFamily = ({ data, settings }) => {
               <h3 className="font-serif text-wedding-primary uppercase tracking-widest text-sm font-bold">
                 {data.family.godparents.label}
               </h3>
-              <div className="text-wedding-accent/80 font-sans text-lg space-y-1">
+              <div className="text-wedding-dark font-sans text-lg space-y-1">
                 {data.family.godparents.people.map((person, i) => (
                   <p key={i}>{person}</p>
                 ))}

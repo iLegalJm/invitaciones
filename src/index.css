@@ -4,7 +4,7 @@
 
 :root {
   --wedding-gold: #c5a059;
-  --wedding-cream: #f9f7f2;
+  --wedding-cream: #FAF3E0;
 }
 
 body {
@@ -12,4 +12,6 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FAF3E0;
+  font-family: 'Parisienne', cursive;
 }

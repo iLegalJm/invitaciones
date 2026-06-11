@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
- * Componente WelcomeCover: Refactorización Premium basada en imagen de referencia.
- * Elimina bloques de esquinas invasivos y perfecciona el sello de lacre.
+ * Componente WelcomeCover: Refactorización "Alta Costura"
+ * Implementa textura de papel de lino, ajustes tipográficos precisos y jerarquía visual mejorada.
  */
 export const WelcomeCover = ({ eventData, onOpen }) => {
   const [isOpening, setIsOpening] = useState(false);
@@ -16,40 +16,6 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
     }, 1000);
   };
 
-  // Sub-componente del Sello de Lacre Detallado
-  const WaxSeal = () => (
-    <div className="relative cursor-pointer">
-      {/* Aura de brillo animada */}
-      <motion.div
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2] 
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-[-20px] bg-wedding-primary/20 rounded-full blur-2xl"
-      />
-      
-      <div className="relative w-24 h-24 filter drop-shadow-[0_8px_15px_rgba(0,0,0,0.2)]">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-wedding-primary drop-shadow-sm">
-          {/* Forma orgánica e irregular del lacre */}
-          <path d="M50 4C35 4 22 10 14 22C6 34 2 50 8 68C14 86 32 96 50 96C68 96 86 86 92 68C98 50 94 34 86 22C78 10 65 4 50 4Z" className="opacity-95" />
-          <path d="M52 7C40 6 28 12 20 25C12 38 9 55 15 72C21 89 40 98 58 97C76 96 88 84 93 65C98 46 91 30 81 18C71 6 64 8 52 7Z" className="brightness-110" />
-          
-          {/* Iniciales grabadas en el centro con efecto hundido */}
-          <text x="50%" y="62%" textAnchor="middle" className="fill-wedding-accent/20 font-serif italic text-4xl select-none mix-blend-multiply">
-            {eventData.groom.name[0]}
-          </text>
-          <text x="52%" y="60%" textAnchor="middle" className="fill-wedding-cream/90 font-serif italic text-4xl select-none">
-            {eventData.groom.name[0]}
-          </text>
-          
-          {/* Brillo especular táctil */}
-          <ellipse cx="35" cy="30" rx="15" ry="10" className="fill-white/30 blur-[6px]" />
-        </svg>
-      </div>
-    </div>
-  );
-
   return (
     <AnimatePresence>
       {!isOpening && (
@@ -57,85 +23,100 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0,
-            scale: 1.05,
+            scale: 1.02,
             transition: { duration: 0.8, ease: "easeOut" } 
           }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-wedding-cream overflow-hidden"
+          style={{ backgroundColor: '#FAF3E0' }}
         >
-          {/* Textura de Papel Lino Ultra-Sutil */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/linen-paper.png')]" />
+          {/* Capa de Textura de Papel de Lino */}
+          <div 
+            className="absolute inset-0 opacity-15 pointer-events-none mix-blend-multiply"
+            style={{ 
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundSize: '150px 150px'
+            }}
+          />
           
-          {/* ADORNOS DE ESQUINAS MINIMALISTAS (Sin bloques blancos) */}
-          <div className="absolute inset-8 pointer-events-none border-[1px] border-wedding-primary/10 pointer-events-none">
+          {/* MARCOS ELEGANTES (Líneas finas Borgoña) */}
+          <div className="absolute inset-6 md:inset-10 pointer-events-none border-[0.5px] border-wedding-primary/20">
             {/* Esquina Superior Izquierda */}
-            <div className="absolute -top-1 -left-1 w-16 h-16 border-t-2 border-l-2 border-wedding-primary" />
-            <div className="absolute -top-1 -left-1 w-4 h-4 bg-wedding-primary" />
+            <div className="absolute -top-[1px] -left-[1px] w-12 h-12 border-t-[1px] border-l-[1px] border-wedding-primary" />
             
             {/* Esquina Superior Derecha */}
-            <div className="absolute -top-1 -right-1 w-16 h-16 border-t-2 border-r-2 border-wedding-primary" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-wedding-primary" />
+            <div className="absolute -top-[1px] -right-[1px] w-12 h-12 border-t-[1px] border-r-[1px] border-wedding-primary" />
             
             {/* Esquina Inferior Izquierda */}
-            <div className="absolute -bottom-1 -left-1 w-16 h-16 border-b-2 border-l-2 border-wedding-primary" />
-            <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-wedding-primary" />
+            <div className="absolute -bottom-[1px] -left-[1px] w-12 h-12 border-b-[1px] border-l-[1px] border-wedding-primary" />
             
             {/* Esquina Inferior Derecha */}
-            <div className="absolute -bottom-1 -right-1 w-16 h-16 border-b-2 border-r-2 border-wedding-primary" />
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-wedding-primary" />
+            <div className="absolute -bottom-[1px] -right-[1px] w-12 h-12 border-b-[1px] border-r-[1px] border-wedding-primary" />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-sm">
-            {/* Monograma JM */}
+          <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-lg">
+            {/* Monogram Circle Fine Line */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="mb-10"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2 }}
+              className="mb-8"
             >
-              <div className="relative w-28 h-28 border-[1.5px] border-wedding-primary/30 rounded-full flex items-center justify-center p-2">
-                <div className="w-full h-full border-[1.5px] border-wedding-primary rounded-full flex items-center justify-center">
-                  <span className="text-wedding-primary font-serif text-5xl mt-2 tracking-tighter">
-                    {eventData.groom.name[0]}{eventData.bride.name[0]}
-                  </span>
+              <div className="w-20 h-20 border-[0.5px] border-wedding-primary/40 rounded-full flex items-center justify-center p-1">
+                <div className="w-full h-full border-[0.5px] border-wedding-primary rounded-full flex items-center justify-center">
+                  <span className="text-wedding-primary font-parisienne text-4xl tracking-tighter">XC</span>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 1 }}
+              className="flex flex-col items-center"
             >
-              <span className="uppercase tracking-[0.5em] text-[11px] text-wedding-primary font-bold mb-6 block">
+              <span className="uppercase tracking-[0.6em] text-[10px] text-wedding-primary/70 font-semibold mb-8">
                 Nuestra Boda
               </span>
               
-              <h1 className="text-5xl font-serif text-wedding-accent mb-16 leading-tight">
-                {eventData.groom.name} <br/> 
-                <span className="text-3xl font-serif italic opacity-40">&</span> <br/> 
-                {eventData.bride.name}
+              {/* Bloque Tipográfico Unido */}
+              <h1 className="flex flex-col items-center">
+                <span className="text-6xl md:text-7xl font-parisienne text-wedding-primary leading-tight">
+                  Xiomy-lu
+                </span>
+                <span className="text-3xl font-serif italic text-wedding-primary/30 my-2">&</span>
+                <span className="text-6xl md:text-7xl font-parisienne text-wedding-primary leading-tight">
+                  Carlos
+                </span>
               </h1>
 
-              <motion.button
+              {/* Sello de Lacre Proporcional */}
+              <motion.div
                 onClick={handleStart}
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group flex flex-col items-center gap-8"
+                whileTap={{ scale: 0.98 }}
+                className="my-14 cursor-pointer relative group"
               >
-                <WaxSeal />
+                {/* Aura sutil */}
+                <div className="absolute inset-0 bg-wedding-primary/5 blur-3xl rounded-full scale-150 group-hover:bg-wedding-primary/10 transition-colors" />
                 
-                <div className="flex flex-col items-center space-y-2">
-                  <span className="uppercase tracking-[0.4em] text-[12px] text-wedding-primary font-bold transition-all duration-300 group-hover:text-wedding-accent">
-                    Abrir Invitación
-                  </span>
-                  <div className="w-12 h-[1px] bg-wedding-primary/40 group-hover:w-full transition-all duration-500" />
-                </div>
-              </motion.button>
+                <img 
+                  src="/assets/images/sello.png" 
+                  alt="Sello de apertura" 
+                  className="w-32 h-32 object-contain drop-shadow-2xl relative z-10"
+                />
+              </motion.div>
+                
+              <div className="flex flex-col items-center space-y-3">
+                <span className="uppercase tracking-[0.5em] text-[11px] text-wedding-primary font-bold">
+                  Abrir Invitación
+                </span>
+                <div className="w-16 h-[0.5px] bg-wedding-primary/40" />
+              </div>
             </motion.div>
           </div>
 
           {/* Viñeta de sombra para profundidad de papel */}
-          <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_120px_rgba(0,0,0,0.04)]" />
+          <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(0,0,0,0.03)]" />
         </motion.div>
       )}
     </AnimatePresence>

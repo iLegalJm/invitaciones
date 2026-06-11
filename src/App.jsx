@@ -17,6 +17,13 @@ import Footer from './components/sections/Footer';
 // Configuración y Hooks
 import { invitationData } from './config/invitationData';
 
+// Divisor Elegante
+const ElegantDivider = () => (
+  <div className="flex justify-center items-center py-12 w-full">
+    <div className="h-16 w-[1px] bg-wedding-primary/30" />
+  </div>
+);
+
 function App() {
   const [isOpened, setIsOpened] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -25,7 +32,6 @@ function App() {
   // Manejo de la apertura del sobre
   const handleOpen = () => {
     setIsOpened(true);
-    // Intentar reproducir audio al abrir (Interacción del usuario)
     if (audioRef.current && audioRef.current.src) {
       audioRef.current.play().then(() => {
         setIsPlaying(true);
@@ -65,7 +71,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-wedding-cream text-wedding-accent font-sans selection:bg-wedding-primary selection:text-white">
+    <div className="min-h-screen bg-wedding-cream text-wedding-primary font-sans selection:bg-wedding-primary selection:text-white" style={{ backgroundColor: '#FAF3E0' }}>
       {/* Audio Element */}
       <audio 
         ref={audioRef} 
@@ -122,59 +128,50 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
             className="flex flex-col bg-wedding-cream"
+            style={{ backgroundColor: '#FAF3E0' }}
           >
             <HeroSection data={invitationData.event} />
             
-            <main className="w-full max-w-5xl mx-auto space-y-24 py-24 px-4 overflow-hidden">
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <ReligiousCeremony 
-                  data={invitationData.event.locations.religious} 
-                />
-              </section>
+            <main className="w-full max-w-5xl mx-auto py-12 overflow-hidden">
               
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <CountdownAndFamily 
-                  data={invitationData.event} 
-                  settings={invitationData.settings} 
-                />
-              </section>
+              <CountdownAndFamily 
+                data={invitationData.event} 
+                settings={invitationData.settings} 
+              />
               
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <LocationsSection 
-                  data={invitationData.event} 
-                />
-              </section>
+              <ElegantDivider />
+              
+              <ReligiousCeremony data={invitationData.event.locations.religious} />
+              
+              <ElegantDivider />
+              
+              <LocationsSection data={invitationData.event} />
 
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <Itinerary 
-                  data={invitationData.event}
-                />
-              </section>
+              <ElegantDivider />
 
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <DressCode 
-                  data={invitationData.features.dressCode} 
-                />
-              </section>
+              <Itinerary data={invitationData.event} />
 
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <GiftSection 
-                  giftData={invitationData.features.gift} 
-                />
-              </section>
+              <ElegantDivider />
 
-              <section className="bg-white/60 backdrop-blur-sm rounded-[3rem] shadow-sm border border-wedding-secondary/10 overflow-hidden">
-                <RSVPAndGallery 
-                  rsvpConfig={invitationData.features.rsvp}
-                  gallery={invitationData.features.gallery}
-                />
-              </section>
+              <DressCode data={invitationData.features.dressCode} />
 
-              <GuestInteractions 
-                phone={invitationData.features.rsvp.phone}
+              <ElegantDivider />
+
+              <GiftSection giftData={invitationData.features.gift} />
+
+              <ElegantDivider />
+
+              <RSVPAndGallery 
+                rsvpConfig={invitationData.features.rsvp}
+                gallery={invitationData.features.gallery}
               />
 
+              <ElegantDivider />
+
+              <GuestInteractions phone={invitationData.features.rsvp.phone} />
+
               <Footer />
+              
             </main>
           </motion.div>
         )}
@@ -184,6 +181,3 @@ function App() {
 }
 
 export default App;
-
-
-

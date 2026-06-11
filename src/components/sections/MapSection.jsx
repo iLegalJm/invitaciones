@@ -3,7 +3,7 @@ import { RevealOnScroll } from '../common/RevealOnScroll';
 
 export const MapSection = ({ locations }) => {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-wedding-cream">
       <RevealOnScroll>
         <h2 className="text-4xl font-serif text-center mb-16 text-wedding-accent italic">Ubicación</h2>
       </RevealOnScroll>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const EventDetails = ({ locations, date }) => {
   return (
-    <section className="py-24 px-6 bg-white relative overflow-hidden">
+    <section className="py-24 px-6 bg-wedding-cream relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <motion.span 

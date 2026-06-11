@@ -10,10 +10,10 @@
 export const invitationData = {
     settings: {
         theme: {
-            primary: '#A87B96', 
-            secondary: '#C49CB4', 
-            cream: '#E2CBD8', 
-            accent: '#1F2937',
+            primary: '#5E1929', 
+            secondary: '#8F5260', 
+            cream: '#FAF3E0', 
+            accent: '#EBD9D9',
             fonts: {
                 titles: "'Playfair Display', serif",
                 body: "'Montserrat', sans-serif"

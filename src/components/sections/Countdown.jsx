@@ -13,7 +13,7 @@ export const Countdown = ({ targetDate, labels }) => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-wedding-cream">
       <RevealOnScroll>
         <div className="flex justify-center gap-4 text-wedding-accent">
           {units.map((unit, index) => (

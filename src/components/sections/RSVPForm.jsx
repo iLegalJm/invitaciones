@@ -50,7 +50,7 @@ export const RSVPForm = ({ rsvpConfig, eventData }) => {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-wedding-gold/30 to-transparent" />
       
       <RevealOnScroll>
-        <div className="max-w-xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-wedding-gold/10">
+        <div className="max-w-xl mx-auto bg-wedding-cream p-8 md:p-12 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-wedding-gold/10">
           <div className="text-center mb-16">
             <span className="uppercase tracking-[0.4em] text-[10px] text-wedding-gold font-bold mb-4 block">Confirmación</span>
             <h2 className="text-4xl font-serif text-wedding-accent italic mb-6">¿Nos acompañas?</h2>

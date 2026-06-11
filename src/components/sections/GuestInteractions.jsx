@@ -13,7 +13,7 @@ const GuestInteractions = ({ phone }) => {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex-1 bg-white/40 backdrop-blur-sm border border-wedding-secondary/10 p-10 rounded-[2.5rem] text-center space-y-6 shadow-sm"
+          className="flex-1 bg-wedding-cream/40 backdrop-blur-sm border border-wedding-secondary/10 p-10 rounded-[2.5rem] text-center space-y-6 shadow-sm"
         >
           <div className="w-12 h-12 bg-wedding-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-6 h-6 text-wedding-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -41,7 +41,7 @@ const GuestInteractions = ({ phone }) => {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex-1 bg-white/40 backdrop-blur-sm border border-wedding-secondary/10 p-10 rounded-[2.5rem] text-center space-y-6 shadow-sm"
+          className="flex-1 bg-wedding-cream/40 backdrop-blur-sm border border-wedding-secondary/10 p-10 rounded-[2.5rem] text-center space-y-6 shadow-sm"
         >
           <div className="w-12 h-12 bg-wedding-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-6 h-6 text-wedding-primary" fill="currentColor" viewBox="0 0 24 24">
