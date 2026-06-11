@@ -49,6 +49,7 @@ export const invitationData = {
         itinerary: [
             { time: "11:30 am", event: "Ceremonia Religiosa", location: "Parroquia San Antonio de Padua" },
             { time: "03:00 pm", event: "Ceremonia Civil", location: "La Residencia de Huachipa" },
+            { time: "04:30 pm", event: "Almuerzo de Celebración", location: "La Residencia de Huachipa" },
             { time: "04:00 pm", event: "Recepción", location: "Buffet y Fiesta" }
         ],
         groom: {

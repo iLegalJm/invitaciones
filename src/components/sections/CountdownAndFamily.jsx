@@ -6,7 +6,7 @@ const CountdownAndFamily = ({ data, settings }) => {
 
   useEffect(() => {
     const targetDate = new Date(data.date.iso).getTime();
-    
+
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
@@ -38,7 +38,7 @@ const CountdownAndFamily = ({ data, settings }) => {
     <section className="py-20 px-6 bg-transparent">
       <div className="max-w-4xl mx-auto text-center">
         {/* Countdown */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,59 +50,43 @@ const CountdownAndFamily = ({ data, settings }) => {
             <TimeBox value={timeLeft.m} label="Min" />
             <TimeBox value={timeLeft.s} label="Seg" />
           </div>
-          
+
           <button className="px-6 py-2 border border-wedding-primary text-wedding-primary uppercase text-xs tracking-widest hover:bg-wedding-primary hover:text-wedding-cream transition-colors duration-300">
             Agregar a Calendario
           </button>
         </motion.div>
 
         {/* Family Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="space-y-12"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif italic text-wedding-primary mb-12">
+          <h2 className="text-3xl md:text-4xl font-serif italic text-wedding-primary mb-16">
             Con la bendición de Dios y el amor de nuestros padres
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Bride Parents */}
-            <div className="space-y-3">
-              <h3 className="font-serif text-wedding-primary uppercase tracking-widest text-sm font-bold">
-                {data.family.bride.label}
-              </h3>
-              <div className="text-wedding-dark font-sans text-lg space-y-1">
-                {data.family.bride.parents.map((parent, i) => (
-                  <p key={i}>{parent}</p>
-                ))}
-              </div>
-            </div>
+            {[
+              { label: data.family.bride.label, names: data.family.bride.parents },
+              { label: data.family.groom.label, names: data.family.groom.parents },
+              { label: data.family.godparents.label, names: data.family.godparents.people }
+            ].map((group, index) => (
+              <div key={index} className="space-y-4">
+                {/* Etiqueta: Color secundario más suave y letra más pequeña */}
+                <h3 className="font-sans text-wedding-primary/60 uppercase tracking-[0.3em] text-[10px] font-bold">
+                  {group.label}
+                </h3>
 
-            {/* Groom Parents */}
-            <div className="space-y-3">
-              <h3 className="font-serif text-wedding-primary uppercase tracking-widest text-sm font-bold">
-                {data.family.groom.label}
-              </h3>
-              <div className="text-wedding-dark font-sans text-lg space-y-1">
-                {data.family.groom.parents.map((parent, i) => (
-                  <p key={i}>{parent}</p>
-                ))}
+                {/* Nombres: Color primario (fuerte) y peso limpio */}
+                <div className="text-wedding-primary font-serif text-lg space-y-1">
+                  {group.names.map((name, i) => (
+                    <p key={i} className="leading-relaxed">{name}</p>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* Godparents */}
-            <div className="space-y-3">
-              <h3 className="font-serif text-wedding-primary uppercase tracking-widest text-sm font-bold">
-                {data.family.godparents.label}
-              </h3>
-              <div className="text-wedding-dark font-sans text-lg space-y-1">
-                {data.family.godparents.people.map((person, i) => (
-                  <p key={i}>{person}</p>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </motion.div>
       </div>

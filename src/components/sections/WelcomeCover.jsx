@@ -91,20 +91,30 @@ export const WelcomeCover = ({ eventData, onOpen }) => {
 
               {/* Sello de Lacre Proporcional */}
               <motion.div
-                onClick={handleStart}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="my-14 cursor-pointer relative group"
-              >
-                {/* Aura sutil */}
-                <div className="absolute inset-0 bg-wedding-primary/5 blur-3xl rounded-full scale-150 group-hover:bg-wedding-primary/10 transition-colors" />
-                
-                <img 
-                  src="/assets/images/sello.png" 
-                  alt="Sello de apertura" 
-                  className="w-32 h-32 object-contain drop-shadow-2xl relative z-10"
-                />
-              </motion.div>
+                  onClick={handleStart}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  // Animación de respiración suave
+                  animate={{ 
+                    scale: [1, 1.02, 1],
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="my-14 cursor-pointer relative group flex flex-col items-center"
+                >
+                  {/* Aura sutil más grande para el sello aumentado */}
+                  <div className="absolute inset-0 bg-wedding-primary/10 blur-3xl rounded-full scale-150 group-hover:bg-wedding-primary/20 transition-all duration-500" />
+                  
+                  <img 
+                    src="/assets/images/sello.png" 
+                    alt="Sello de apertura" 
+                    // Aumenté de w-32 (128px) a w-40 (160px) para más presencia
+                    className="w-40 h-40 object-contain drop-shadow-xl relative z-10 hover:drop-shadow-2xl transition-all duration-500"
+                  />
+                </motion.div>
                 
               <div className="flex flex-col items-center space-y-3">
                 <span className="uppercase tracking-[0.5em] text-[11px] text-wedding-primary font-bold">
