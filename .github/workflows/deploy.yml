@@ -22,17 +22,6 @@ jobs:
           npm install
           npm run build
 
-      # 1. Limpiar carpeta remota antes de subir lo nuevo
-      - name: Clean Remote Directory
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            rm -rf /home/policlin/public_html/digitaliza360.com/Invit/Xiomy-lu-Carlos/*
-
       # 2. Subir los archivos nuevos desde la carpeta 'dist'
       - name: Deploy to Server
         uses: appleboy/scp-action@master
@@ -40,7 +29,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
+          port: 5555
           source: "dist/*"
           target: "/home/policlin/public_html/digitaliza360.com/Invit/Xiomy-lu-Carlos"
           strip_components: 1
