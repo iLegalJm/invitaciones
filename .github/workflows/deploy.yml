@@ -29,7 +29,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 5555
+          port: 22
           script: |
             rm -rf /home/policlin/public_html/digitaliza360.com/Invit/Xiomy-lu-Carlos/*
 
@@ -40,7 +40,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 5555
+          port: 22
           source: "dist/*"
           target: "/home/policlin/public_html/digitaliza360.com/Invit/Xiomy-lu-Carlos"
           strip_components: 1
