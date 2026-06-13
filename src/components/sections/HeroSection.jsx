@@ -9,7 +9,7 @@ export const HeroSection = ({ data }) => {
         className="absolute inset-0 bg-cover transition-transform duration-[10s] scale-105"
         style={{
           // Corrección del formato de ruta para producción
-          backgroundImage: `url('/assets/images/DSC_0295.JPG')`,
+          backgroundImage: `url('/assets/images/DSC_0295.webp')`,
           // Ajuste fino: Desplazamos el punto de anclaje un 10% a la IZQUIERDA (40%) 
           // para centralizar a las personas, manteniendo la vertical al centro.
           backgroundPosition: '40% center',

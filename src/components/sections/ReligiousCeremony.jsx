@@ -45,7 +45,7 @@ const ReligiousCeremony = ({ data }) => {
             className="aspect-[3/4] rounded-b-full overflow-hidden bg-white p-1 md:p-2 border border-wedding-secondary/20 mt-16 relative"
           >
             <img 
-              src="/assets/images/web9.jpg" 
+              src="/assets/images/web6.jpg" 
               alt="Detalles" 
               className="w-full h-full object-cover object-center rounded-b-full transition-transform duration-1000 hover:scale-105"
             />

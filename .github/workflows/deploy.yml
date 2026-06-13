@@ -1,0 +1,47 @@
+name: Deploy Invitacion Boda Xiomy-Carlos
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build
+        run: |
+          npm install
+          npm run build
+
+      # 1. Limpiar carpeta remota antes de subir lo nuevo
+      - name: Clean Remote Directory
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 5555
+          script: |
+            rm -rf /home/policlin/public_html/digitaliza360.com/Invit/Xiomy-lu-Carlos/*
+
+      # 2. Subir los archivos nuevos desde la carpeta 'dist'
+      - name: Deploy to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 5555
+          source: "dist/*"
+          target: "/home/policlin/public_html/digitaliza360.com/Invit/Xiomy-lu-Carlos"
+          strip_components: 1
+          overwrite: true
