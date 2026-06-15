@@ -23,7 +23,7 @@ export const invitationData = {
         seo: {
             title: "Xiomy-lu & Carlos - ¡Nuestra Boda!",
             description: "Acompáñanos a celebrar nuestra unión el 8 de agosto de 2026.",
-            ogImage: "/assets/og-image.jpg"
+            ogImage: "./assets/og-image.jpg"
         }
     },
 
@@ -48,10 +48,17 @@ export const invitationData = {
         },
         itinerary: [
             { time: "11:30 am", event: "Ceremonia Religiosa", location: "Parroquia San Antonio de Padua", icono: "iglesia" },
+            {
+                time: "01:15 pm", // Hora aproximada de salida
+                event: "Traslado de Invitados",
+                location: "Bus disponible hacia Huachipa",
+                icono: "bus" // Puedes usar un icono de transporte
+            },
             { time: "03:00 pm", event: "Ceremonia Civil", location: "La Residencia de Huachipa", icono: "civil" },
-            { time: "04:00 pm", event: "Recepción", location: "Buffet y Fiesta", icono: "brindis" },
-            { time: "04:30 pm", event: "Almuerzo de Celebración", location: "La Residencia de Huachipa", icono: "comida" }
+            { time: "03:30 pm", event: "Recepción", location: "Buffet y Fiesta", icono: "brindis" },
+            // { time: "04:30 pm", event: "Almuerzo de Celebración", location: "La Residencia de Huachipa", icono: "comida" }
         ],
+        deadline: "2026-07-01",
         groom: {
             name: "Carlos",
             lastName: "",
@@ -71,14 +78,14 @@ export const invitationData = {
                 time: "11:30 am",
                 name: "Parroquia San Antonio de Padua",
                 address: "Av. San Felipe 571, Jesús María - Lima",
-                googleMaps: "https://maps.app.goo.gl/..."
+                googleMaps: "https://maps.app.goo.gl/7bMiwqL13HHK9kU58"
             },
             civil: {
                 title: "Ceremonia Civil y Recepción",
                 time: "03:00 pm",
                 name: "La Residencia de Huachipa",
                 address: "Av. Los Cisnes Mz 1-2 Lte. 21, Huachipa - Lima",
-                googleMaps: "https://maps.app.goo.gl/..."
+                googleMaps: "https://maps.app.goo.gl/K3GN2ds11bFgSVDX7"
             }
         }
     },
@@ -89,13 +96,14 @@ export const invitationData = {
             labels: { d: "Días", h: "Hs", m: "Min", s: "Seg" }
         },
         music: {
-            url: "/assets/music/CANCIÓN NOVIOS.mp3",
+            url: "./assets/music/cancion.mp3",
             title: "Iris - Goo Goo Dolls"
         },
         rsvp: {
             deadline: "2026-07-01",
-            contactName: "Gina Sosa",
-            phone: "51964616511",
+            contactName: "Annie",
+            // phone: "51901336096",
+            phone: "51906299923",
             fields: {
                 name: "Nombre y Apellido",
                 attending: "¿Asistirás?",
@@ -107,8 +115,8 @@ export const invitationData = {
         dressCode: {
             title: "Código de Vestimenta",
             type: "FORMAL",
-            men: "Traje completo",
-            women: "Vestido largo",
+            men: "Traje",
+            women: "Vestido de gala",
             note: "Evento Solo Adultos"
         },
         gift: {
@@ -120,7 +128,11 @@ export const invitationData = {
             ]
         },
         gallery: [
-            { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc", caption: "" }
+            { url: "./assets/images/DSC_3036.jpg", caption: "" },
+            { url: "./assets/images/v3_m.jpg", caption: "" },
+            { url: "./assets/images/h3_m.jpeg", caption: "" },
+            { url: "./assets/images/IMG_5165.jpg", caption: "" },
+            { url: "./assets/images/v4_m.jpeg", caption: "" }
         ]
     }
 };

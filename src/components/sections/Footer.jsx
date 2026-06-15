@@ -1,32 +1,27 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const Footer = () => {
+const Footer = ({ eventData }) => {
   return (
-    <footer className="py-20 text-center space-y-8 bg-transparent flex flex-col items-center overflow-hidden">
-
-      {/* Imagen final de la pareja sin fondo */}
-      <img
-        src="/assets/images/1.png"
-        alt="Xiomy-lu y Carlos"
-        className="w-64 md:w-80 mx-auto mb-4 drop-shadow-xl pointer-events-none"
-      />
-
-      <div className="flex flex-col items-center justify-center space-y-6 z-10">
-        <div className="w-16 h-[1px] bg-wedding-primary/30"></div>
-
-        <p className="font-serif italic text-2xl md:text-4xl text-wedding-primary px-6 max-w-lg leading-relaxed">
-          ¡Gracias por acompañarnos en este día tan especial!
+    <footer className="py-6 px-6 bg-transparent text-center border-t border-wedding-secondary/10 mt-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="max-w-xl mx-auto space-y-4"
+      >
+        <p className="text-wedding-secondary uppercase tracking-[0.6em] text-[10px] font-bold">
+          Te Esperamos
         </p>
 
-        <div className="w-16 h-[1px] bg-wedding-primary/30"></div>
-      </div>
+        <h2 className="text-3xl md:text-4xl font-serif text-wedding-primary italic leading-tight">
+          {eventData.bride.name} & {eventData.groom.name}
+        </h2>
 
-      <p className="text-[10px] uppercase tracking-[0.4em] text-wedding-secondary font-bold font-sans mt-8">
-        Xiomy-lu & Carlos
-      </p>
-      <p className="text-[8px] uppercase tracking-[0.2em] text-wedding-dark/40 font-sans mt-2">
-        08 de Agosto | 2026
-      </p>
+        <p className="text-wedding-dark/60 font-sans text-[10px] uppercase tracking-widest pt-3">
+          Hecho con ❤️ en {eventData.date.year}
+        </p>
+      </motion.div>
     </footer>
   );
 };

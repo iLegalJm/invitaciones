@@ -28,9 +28,9 @@ const CountdownAndFamily = ({ data, settings }) => {
   }, [data.date.iso]);
 
   const TimeBox = ({ value, label }) => (
-    <div className="flex flex-col items-center bg-wedding-cream/50 backdrop-blur-sm border border-wedding-primary/10 p-4 rounded-lg min-w-[70px] md:min-w-[100px] shadow-sm">
-      <span className="text-2xl md:text-3xl font-serif text-wedding-primary">{value}</span>
-      <span className="text-[10px] uppercase tracking-widest text-wedding-secondary font-bold mt-1">{label}</span>
+    <div className="flex flex-col items-center">
+      <span className="text-3xl md:text-4xl font-serif text-wedding-primary">{value}</span>
+      <span className="text-[9px] uppercase tracking-[0.2em] text-wedding-secondary/70 font-bold mt-1">{label}</span>
     </div>
   );
 
@@ -44,14 +44,14 @@ const CountdownAndFamily = ({ data, settings }) => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <div className="flex justify-center gap-3 md:gap-6 mb-8">
+          <div className="flex justify-center gap-6 md:gap-12 mb-12">
             <TimeBox value={timeLeft.d} label="Días" />
-            <TimeBox value={timeLeft.h} label="Hrs" />
+            <TimeBox value={timeLeft.h} label="Horas" />
             <TimeBox value={timeLeft.m} label="Min" />
             <TimeBox value={timeLeft.s} label="Seg" />
           </div>
 
-          <button className="px-6 py-2 border border-wedding-primary text-wedding-primary uppercase text-xs tracking-widest hover:bg-wedding-primary hover:text-wedding-cream transition-colors duration-300">
+          <button className="px-8 py-3 border border-wedding-primary/30 text-wedding-primary uppercase text-[10px] tracking-[0.3em] hover:border-wedding-primary transition-all duration-300">
             Agregar a Calendario
           </button>
         </motion.div>

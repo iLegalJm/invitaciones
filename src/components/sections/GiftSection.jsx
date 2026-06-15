@@ -38,7 +38,7 @@ export const GiftSection = ({ giftData }) => {
 
           {/* Imagen Flotante (Manos con anillo) */}
           <img
-            src="assets\images\2.png"
+            src="./assets/images/2.png"
             alt="Detalle de manos"
             className="absolute -bottom-16 -left-12 w-40 md:w-56 opacity-90 drop-shadow-lg pointer-events-none z-10"
           />

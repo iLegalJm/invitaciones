@@ -13,14 +13,28 @@ import { GiftSection } from './components/sections/GiftSection';
 import RSVPAndGallery from './components/sections/RSVPAndGallery';
 import GuestInteractions from './components/sections/GuestInteractions';
 import Footer from './components/sections/Footer';
+import Countdown from './components/sections/Countdown';
 
 // Configuración y Hooks
 import { invitationData } from './config/invitationData';
+import FamilySection from './components/sections/FamilySection';
+import EventDetails from './components/sections/EventDetails';
+import GiftRegistry from './components/sections/GiftRegistry';
+import Gallery from './components/sections/Gallery';
+import WishesAndSongs from './components/sections/WishesAndSongs';
+import RSVP from './components/sections/RSVP';
+import PhotoBanner from './components/sections/PhotoBanner';
 
 // Divisor Elegante
 const ElegantDivider = () => (
-  <div className="flex justify-center items-center py-12 w-full">
-    <div className="h-16 w-[1px] bg-wedding-primary/30" />
+  <div className="flex justify-center items-center py-4 w-full">
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      whileInView={{ height: 48, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="w-[1px] bg-wedding-secondary/40"
+    />
   </div>
 );
 
@@ -73,15 +87,15 @@ function App() {
   return (
     <div className="min-h-screen bg-wedding-cream text-wedding-primary font-sans selection:bg-wedding-primary selection:text-white" style={{ backgroundColor: '#FAF3E0' }}>
       {/* Audio Element */}
-      <audio 
-        ref={audioRef} 
-        src={invitationData.features.music.url} 
-        loop 
+      <audio
+        ref={audioRef}
+        src={invitationData.features.music.url}
+        loop
       />
 
       {/* Botón Flotante de Música */}
       {isOpened && (
-        <button 
+        <button
           onClick={toggleMusic}
           className="fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-wedding-secondary/20 transition-all active:scale-95"
           aria-label="Control de música"
@@ -89,17 +103,17 @@ function App() {
           <div className="relative">
             {isPlaying ? (
               <span className="flex gap-[3px] items-end h-4">
-                <motion.span 
+                <motion.span
                   animate={{ height: [4, 16, 8, 16, 4] }}
                   transition={{ repeat: Infinity, duration: 0.8 }}
                   className="w-1 bg-wedding-primary"
                 />
-                <motion.span 
+                <motion.span
                   animate={{ height: [8, 4, 16, 4, 8] }}
                   transition={{ repeat: Infinity, duration: 1 }}
                   className="w-1 bg-wedding-primary"
                 />
-                <motion.span 
+                <motion.span
                   animate={{ height: [16, 8, 4, 8, 16] }}
                   transition={{ repeat: Infinity, duration: 0.9 }}
                   className="w-1 bg-wedding-primary"
@@ -116,14 +130,10 @@ function App() {
 
       <AnimatePresence mode="wait">
         {!isOpened ? (
-          <WelcomeCover 
-            key="cover"
-            eventData={invitationData.event} 
-            onOpen={handleOpen} 
-          />
+          <WelcomeCover onOpen={handleOpen} />
         ) : (
-          <motion.div 
-            key="content" 
+          <motion.div
+            key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -131,47 +141,45 @@ function App() {
             style={{ backgroundColor: '#FAF3E0' }}
           >
             <HeroSection data={invitationData.event} />
-            
+
             <main className="w-full max-w-5xl mx-auto py-12 overflow-hidden">
-              
-              <CountdownAndFamily 
-                data={invitationData.event} 
-                settings={invitationData.settings} 
-              />
-              
-              <ElegantDivider />
-              
-              <ReligiousCeremony data={invitationData.event.locations.religious} />
-              
-              <ElegantDivider />
-              
-              <LocationsSection data={invitationData.event} />
 
-              <ElegantDivider />
+              <Countdown data={invitationData.event} />
 
-              <Itinerary data={invitationData.event} />
+              <FamilySection data={invitationData.event} />
 
-              <ElegantDivider />
+              {/* <ElegantDivider /> */}
+
+              <EventDetails locations={invitationData.event.locations} />
+
+              {/* <ElegantDivider /> */}
+
+              <Itinerary items={invitationData.event.itinerary} />
+
+              {/* <ElegantDivider /> */}
 
               <DressCode data={invitationData.features.dressCode} />
 
-              <ElegantDivider />
+              {/* <ElegantDivider /> */}
+              <PhotoBanner />
 
-              <GiftSection giftData={invitationData.features.gift} />
+              <GiftRegistry data={invitationData.features.gift} />
 
-              <ElegantDivider />
+              {/* <ElegantDivider /> */}
 
-              <RSVPAndGallery 
-                rsvpConfig={invitationData.features.rsvp}
-                gallery={invitationData.features.gallery}
-              />
+              <Gallery images={invitationData.features.gallery} />
 
-              <ElegantDivider />
+              {/* <ElegantDivider /> */}
 
-              <GuestInteractions phone={invitationData.features.rsvp.phone} />
+              <WishesAndSongs />
 
-              <Footer />
-              
+              {/* <ElegantDivider /> */}
+
+              <RSVP data={invitationData.features.rsvp} />
+
+              {/* <ElegantDivider /> */}
+
+              <Footer eventData={invitationData.event} />
             </main>
           </motion.div>
         )}

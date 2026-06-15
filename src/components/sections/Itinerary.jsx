@@ -1,84 +1,201 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const IconoEvento = ({ tipo }) => {
-  const strokeWidth = 0.8; // Trazo aún más fino
-  const className = "w-7 h-7 text-wedding-primary/70"; // Tamaño ligeramente mayor
-
-  const iconos = {
-    iglesia: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
-        <path d="M12 2L4 8v12h16V8l-8-6z M12 12v8 M9 20h6 M12 2v6" />
-      </svg>
-    ),
-    civil: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
-        <circle cx="12" cy="12" r="6" />
-        <path d="M12 6V2 M12 22v-4 M6 12H2 M22 12h-4" />
-      </svg>
-    ),
-    brindis: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
-        <path d="M18 10L12 3 6 10z M12 10v11 M9 21h6" />
-        <path d="M15 6.5L13.5 8" />
-      </svg>
-    ),
-    comida: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
-        <path d="M12 2v10m-4-6l8 0 M10 18h4" />
-        <path d="M12 20a4 4 0 0 0 4-4H8a4 4 0 0 0 4 4z" />
-      </svg>
-    )
-  };
-  return iconos[tipo] || null;
+const ICON_MAP = {
+  iglesia : './assets/images/icon/iglesia.png',
+  civil   : './assets/images/icon/civil.png',
+  brindis : './assets/images/icon/brindis.png',
+  bus     : './assets/images/icon/bus.png',
 };
 
-const Itinerary = ({ data }) => {
+const Itinerary = ({ items = [] }) => {
   return (
-    <section className="py-24 px-6 bg-transparent">
-      <div className="max-w-3xl mx-auto">
-        <motion.h2 className="text-4xl font-serif text-wedding-primary text-center mb-20 italic">
-          Itinerario
-        </motion.h2>
+    <section style={{ padding: '72px 0', background: 'transparent' }}>
+      <div style={{ maxWidth: 560, margin: '0 auto', padding: '0 20px' }}>
 
-        <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-wedding-primary/30" />
-
-          <div className="space-y-16">
-            {data.itinerary.map((item, index) => (
-              <motion.div key={index} className="relative flex items-center justify-between w-full">
-
-                {/* Contenido */}
-                <div className={`w-5/12 flex items-center ${index % 2 === 0 ? 'justify-end' : 'justify-start order-2'}`}>
-
-                  {/* Contenedor del texto y el icono */}
-                  <div className={`flex items-center gap-4 ${index % 2 === 0 ? 'flex-row-reverse text-right' : 'flex-row text-left'}`}>
-
-                    {/* Texto */}
-                    <div>
-                      <h4 className="text-wedding-primary font-bold uppercase tracking-[0.2em] text-[10px] mb-1">
-                        {item.event}
-                      </h4>
-                      <p className="text-wedding-secondary font-serif text-lg italic">
-                        {item.time}
-                      </p>
-                    </div>
-
-                    {/* Icono (ahora alineado con el nodo central) */}
-                    <div className="p-1 border border-wedding-primary/20 rounded-full">
-                      <IconoEvento tipo={item.icono} />
-                    </div>
-
-                  </div>
-                </div>
-
-                {/* Nodo Central */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#FAF3E0] border border-wedding-primary rounded-full z-10" />
-
-                <div className="w-5/12" />
-              </motion.div>
-            ))}
+        {/* ── Encabezado ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          style={{ textAlign: 'center', marginBottom: 60 }}
+        >
+          <p style={{
+            fontFamily : "'Parisienne', cursive",
+            fontSize   : 30,
+            color      : '#8F5260',
+            lineHeight : 1,
+            marginBottom: 8,
+          }}>
+            El Gran Día
+          </p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, margin: '10px 0 16px' }}>
+            <div style={{ width: 44, height: .5, background: 'rgba(94,25,41,.3)' }} />
+            <span style={{ color: '#c5a059', fontSize: 11, letterSpacing: '0.2em' }}>✦ ✦ ✦</span>
+            <div style={{ width: 44, height: .5, background: 'rgba(94,25,41,.3)' }} />
           </div>
+          <h2 style={{
+            fontFamily   : "'Playfair Display', serif",
+            fontSize     : 'clamp(2rem, 8vw, 3.2rem)',
+            fontWeight   : 700,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color        : '#5E1929',
+            lineHeight   : 1.1,
+          }}>
+            Itinerario
+          </h2>
+        </motion.div>
+
+        {/* ── Timeline ── */}
+        <div style={{ position: 'relative' }}>
+
+          {/* Línea vertical central */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.4, ease: 'easeInOut' }}
+            style={{
+              position       : 'absolute',
+              left           : '50%',
+              transform      : 'translateX(-50%)',
+              top            : 0, bottom: 0,
+              width          : 1,
+              background     : 'rgba(94,25,41,.2)',
+              transformOrigin: 'top',
+              zIndex         : 1,
+            }}
+          />
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {items.map((item, i) => {
+              const side  = item.side || (i % 2 === 0 ? 'left' : 'right');
+              const isLeft = side === 'left';
+              const [time, ampm] = (item.time || '').split(' ');
+              const iconSrc = ICON_MAP[item.icono] || null;
+              const delay  = 0.1 + i * 0.1;
+
+              // El ícono siempre va pegado a la línea central, en la columna opuesta al texto
+              const ICON_SIZE = 120;
+
+              return (
+                <div
+                  key={i}
+                  style={{
+                    display            : 'grid',
+                    gridTemplateColumns: '1fr 32px 1fr',
+                    alignItems         : 'center',
+                    minHeight          : 140,
+                  }}
+                >
+                  {/* ── Columna izquierda ── */}
+                  <div style={{ paddingRight: 6, paddingTop: 8, paddingBottom: 8 }}>
+                    {isLeft ? (
+                      /* Texto alineado a la derecha */
+                      <motion.div
+                        initial={{ opacity: 0, x: -28 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-30px' }}
+                        transition={{ duration: 0.7, delay, ease: [0.22,1,0.36,1] }}
+                        style={{ textAlign: 'right' }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 5, justifyContent: 'flex-end', marginBottom: 4 }}>
+                          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#5E1929', lineHeight: 1 }}>{time}</span>
+                          {ampm && <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8F5260', fontWeight: 700 }}>{ampm}</span>}
+                        </div>
+                        <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D2D2D', marginBottom: 3, lineHeight: 1.35 }}>{item.event}</p>
+                        {item.location && <p style={{ fontFamily: "'Playfair Display',serif", fontSize: 11, fontStyle: 'italic', color: '#8F5260', lineHeight: 1.4 }}>{item.location}</p>}
+                      </motion.div>
+                    ) : (
+                      /* Ícono pegado al centro, alineado a la derecha */
+                      iconSrc && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, margin: '-30px' }}
+                          transition={{ duration: 0.7, delay, ease: [0.22,1,0.36,1] }}
+                          style={{ display: 'flex', justifyContent: 'flex-end' }}
+                        >
+                          <div style={{ width: ICON_SIZE, height: ICON_SIZE, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <img src={iconSrc} alt={item.event} style={{ width: ICON_SIZE, height: ICON_SIZE, objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                          </div>
+                        </motion.div>
+                      )
+                    )}
+                  </div>
+
+                  {/* ── Punto central ── */}
+                  <div style={{ display: 'flex', justifyContent: 'center', zIndex: 2 }}>
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay }}
+                      style={{ width: 11, height: 11, borderRadius: '50%', background: '#5E1929', flexShrink: 0 }}
+                    />
+                  </div>
+
+                  {/* ── Columna derecha ── */}
+                  <div style={{ paddingLeft: 6, paddingTop: 8, paddingBottom: 8 }}>
+                    {!isLeft ? (
+                      /* Texto alineado a la izquierda */
+                      <motion.div
+                        initial={{ opacity: 0, x: 28 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-30px' }}
+                        transition={{ duration: 0.7, delay, ease: [0.22,1,0.36,1] }}
+                        style={{ textAlign: 'left' }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 5, marginBottom: 4 }}>
+                          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#5E1929', lineHeight: 1 }}>{time}</span>
+                          {ampm && <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8F5260', fontWeight: 700 }}>{ampm}</span>}
+                        </div>
+                        <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D2D2D', marginBottom: 3, lineHeight: 1.35 }}>{item.event}</p>
+                        {item.location && <p style={{ fontFamily: "'Playfair Display',serif", fontSize: 11, fontStyle: 'italic', color: '#8F5260', lineHeight: 1.4 }}>{item.location}</p>}
+                      </motion.div>
+                    ) : (
+                      /* Ícono pegado al centro, alineado a la izquierda */
+                      iconSrc && (
+                        <motion.div
+                          initial={{ opacity: 0, x: 20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, margin: '-30px' }}
+                          transition={{ duration: 0.7, delay, ease: [0.22,1,0.36,1] }}
+                          style={{ display: 'flex', justifyContent: 'flex-start' }}
+                        >
+                          <div style={{ width: ICON_SIZE, height: ICON_SIZE, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <img src={iconSrc} alt={item.event} style={{ width: ICON_SIZE, height: ICON_SIZE, objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                          </div>
+                        </motion.div>
+                      )
+                    )}
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Ornamento final */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            style={{ textAlign: 'center', marginTop: 48 }}
+          >
+            <svg width="180" height="30" viewBox="0 0 180 30" fill="none">
+              <path d="M0 15 Q30 4 60 15 Q90 26 120 15 Q150 4 180 15" stroke="#c5a059" strokeWidth=".8" strokeOpacity=".55" fill="none"/>
+              <circle cx="90"  cy="15" r="3"   fill="#c5a059" fillOpacity=".7"/>
+              <circle cx="58"  cy="20" r="1.8" fill="#c5a059" fillOpacity=".4"/>
+              <circle cx="122" cy="20" r="1.8" fill="#c5a059" fillOpacity=".4"/>
+              <circle cx="30"  cy="12" r="1.2" fill="#c5a059" fillOpacity=".3"/>
+              <circle cx="150" cy="12" r="1.2" fill="#c5a059" fillOpacity=".3"/>
+            </svg>
+          </motion.div>
+
         </div>
       </div>
     </section>
