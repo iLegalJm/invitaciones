@@ -84,7 +84,7 @@ export const invitationData = {
                 title: "Ceremonia Civil y Recepción",
                 time: "03:00 pm",
                 name: "La Residencia de Huachipa",
-                address: "Av. Los Cisnes Mz 1-2 Lte. 21, Huachipa - Lima",
+                address: "Av. Los Cisnes Mz I-2 Lte. 21, Huachipa - Lima",
                 googleMaps: "https://maps.app.goo.gl/K3GN2ds11bFgSVDX7"
             }
         }

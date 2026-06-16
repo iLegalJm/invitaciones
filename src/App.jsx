@@ -43,7 +43,6 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  // Manejo de la apertura del sobre
   const handleOpen = () => {
     setIsOpened(true);
     if (audioRef.current && audioRef.current.src) {
@@ -55,7 +54,6 @@ function App() {
     }
   };
 
-  // Toggle Manual de Música
   const toggleMusic = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -67,13 +65,8 @@ function App() {
     }
   };
 
-  // Bloquear scroll cuando el sobre está cerrado
   useEffect(() => {
-    if (!isOpened) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    document.body.style.overflow = isOpened ? 'auto' : 'hidden';
   }, [isOpened]);
 
   if (!invitationData || !invitationData.event) {
@@ -86,12 +79,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-wedding-cream text-wedding-primary font-sans selection:bg-wedding-primary selection:text-white" style={{ backgroundColor: '#FAF3E0' }}>
-      {/* Audio Element */}
-      <audio
-        ref={audioRef}
-        src={invitationData.features.music.url}
-        loop
-      />
+
+      {/* Audio */}
+      <audio ref={audioRef} src={invitationData.features.music.url} loop />
 
       {/* Botón Flotante de Música */}
       {isOpened && (
@@ -103,21 +93,9 @@ function App() {
           <div className="relative">
             {isPlaying ? (
               <span className="flex gap-[3px] items-end h-4">
-                <motion.span
-                  animate={{ height: [4, 16, 8, 16, 4] }}
-                  transition={{ repeat: Infinity, duration: 0.8 }}
-                  className="w-1 bg-wedding-primary"
-                />
-                <motion.span
-                  animate={{ height: [8, 4, 16, 4, 8] }}
-                  transition={{ repeat: Infinity, duration: 1 }}
-                  className="w-1 bg-wedding-primary"
-                />
-                <motion.span
-                  animate={{ height: [16, 8, 4, 8, 16] }}
-                  transition={{ repeat: Infinity, duration: 0.9 }}
-                  className="w-1 bg-wedding-primary"
-                />
+                <motion.span animate={{ height: [4, 16, 8, 16, 4] }} transition={{ repeat: Infinity, duration: 0.8 }} className="w-1 bg-wedding-primary" />
+                <motion.span animate={{ height: [8, 4, 16, 4, 8] }} transition={{ repeat: Infinity, duration: 1 }} className="w-1 bg-wedding-primary" />
+                <motion.span animate={{ height: [16, 8, 4, 8, 16] }} transition={{ repeat: Infinity, duration: 0.9 }} className="w-1 bg-wedding-primary" />
               </span>
             ) : (
               <svg className="w-6 h-6 text-wedding-primary/40 ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -148,36 +126,21 @@ function App() {
 
               <FamilySection data={invitationData.event} />
 
-              {/* <ElegantDivider /> */}
-
               <EventDetails locations={invitationData.event.locations} />
-
-              {/* <ElegantDivider /> */}
 
               <Itinerary items={invitationData.event.itinerary} />
 
-              {/* <ElegantDivider /> */}
-
               <DressCode data={invitationData.features.dressCode} />
 
-              {/* <ElegantDivider /> */}
               <PhotoBanner />
 
               <GiftRegistry data={invitationData.features.gift} />
 
-              {/* <ElegantDivider /> */}
-
               <Gallery images={invitationData.features.gallery} />
-
-              {/* <ElegantDivider /> */}
 
               <WishesAndSongs />
 
-              {/* <ElegantDivider /> */}
-
               <RSVP data={invitationData.features.rsvp} />
-
-              {/* <ElegantDivider /> */}
 
               <Footer eventData={invitationData.event} />
             </main>

@@ -1,34 +1,50 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbxwk6EB-hoVJ8BcmlOyZeSUohk3rw9_3Cy36z5krjWZkMrb7Y-ipPn7Yn0OlGHcuO7wEA/exec';
+
 const WishesAndSongs = () => {
     const [wishData, setWishData] = useState({ name: '', message: '' });
     const [songData, setSongData] = useState({ song: '', artist: '' });
 
-    // Estados para controlar los mensajes de éxito
     const [wishSuccess, setWishSuccess] = useState(false);
     const [songSuccess, setSongSuccess] = useState(false);
+    const [songSending, setSongSending] = useState(false);
+
+    // Leer id del invitado desde la URL (?id=980501238)
+    const params = new URLSearchParams(window.location.search);
+    const guestPhone = params.get('id');
 
     const handleWishSubmit = (e) => {
         e.preventDefault();
-        // Aquí tu lógica de envío (API/Backend)
         console.log("Deseo:", wishData);
-
-        // Limpiar formulario y mostrar éxito
         setWishData({ name: '', message: '' });
         setWishSuccess(true);
-        setTimeout(() => setWishSuccess(false), 4000); // Se oculta en 4 segundos
+        setTimeout(() => setWishSuccess(false), 4000);
     };
 
-    const handleSongSubmit = (e) => {
+    const handleSongSubmit = async (e) => {
         e.preventDefault();
-        // Aquí tu lógica de envío (API/Backend)
-        console.log("Canción:", songData);
-
-        // Limpiar formulario y mostrar éxito
+        setSongSending(true);
+        try {
+            await fetch(SHEET_API_URL, {
+                method : 'POST',
+                body   : JSON.stringify({
+                    tipo    : 'cancion',
+                    telefono: guestPhone || null,
+                    nombre  : songData.artist, // reutilizamos artist como referencia si no hay id
+                    cancion : songData.song,
+                    artista : songData.artist,
+                }),
+                headers: { 'Content-Type': 'text/plain' },
+            });
+        } catch (err) {
+            console.error('Error al guardar canción:', err);
+        }
         setSongData({ song: '', artist: '' });
+        setSongSending(false);
         setSongSuccess(true);
-        setTimeout(() => setSongSuccess(false), 4000); // Se oculta en 4 segundos
+        setTimeout(() => setSongSuccess(false), 4000);
     };
 
     const inputClasses = "w-full bg-transparent border-b border-wedding-secondary/30 focus:border-wedding-primary outline-none py-3 text-sm md:text-base text-wedding-dark font-sans placeholder-wedding-secondary/50 transition-colors rounded-none";
@@ -150,9 +166,10 @@ const WishesAndSongs = () => {
                             <div className="pt-2 flex items-center gap-4">
                                 <button
                                     type="submit"
-                                    className="inline-block px-8 py-3 border border-wedding-primary text-wedding-primary bg-transparent text-[10px] uppercase tracking-[0.2em] hover:bg-wedding-primary hover:text-white transition-all duration-300 rounded-full"
+                                    disabled={songSending}
+                                    className="inline-block px-8 py-3 border border-wedding-primary text-wedding-primary bg-transparent text-[10px] uppercase tracking-[0.2em] hover:bg-wedding-primary hover:text-white transition-all duration-300 rounded-full disabled:opacity-50"
                                 >
-                                    Sugerir Canción
+                                    {songSending ? 'Guardando...' : 'Sugerir Canción'}
                                 </button>
 
                                 {/* Mensaje de Éxito Animado */}

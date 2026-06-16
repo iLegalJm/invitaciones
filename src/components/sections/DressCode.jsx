@@ -2,6 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const DressCode = ({ data }) => {
+  const paletteColors = ['#5E1929', '#8F5260', '#F8F0E5', '#DCAEBA'];
+
+  // Colores claros que se confunden con el fondo crema → les damos borde visible
+  const LIGHT_COLORS = new Set(['#F8F0E5', '#f8f0e5']);
+  const getBorder = (color) =>
+    LIGHT_COLORS.has(color)
+      ? '2px solid rgba(94,25,41,0.28)'
+      : '2px solid transparent';
+
   return (
     <section className="py-12 px-6 bg-transparent text-center">
       <div className="max-w-4xl mx-auto">
@@ -26,7 +35,7 @@ const DressCode = ({ data }) => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 items-start">
 
           {/* ── Columna Formal ── */}
           <motion.div
@@ -66,7 +75,35 @@ const DressCode = ({ data }) => {
               </div>
             </div>
 
-            <p className="text-wedding-primary font-serif italic text-3xl tracking-widest">ELEGANTE</p>
+            <p className="text-wedding-primary font-serif italic text-3xl tracking-widest">FORMAL</p>
+          </motion.div>
+
+          {/* ── Columna Paleta ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="space-y-6 flex flex-col items-center justify-center h-full"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-wedding-secondary mb-2">
+              Paleta sugerida
+            </p>
+            <div className="flex justify-center -space-x-2">
+              {paletteColors.map((color, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 * i }}
+                  className="w-11 h-11 rounded-full relative z-10 hover:z-20 hover:scale-110 transition-transform shadow-sm"
+                  style={{ backgroundColor: color, border: getBorder(color) }}
+                />
+              ))}
+            </div>
+            <p className="text-xs text-wedding-secondary font-sans max-w-[260px] leading-relaxed italic">
+              Sugerimos elegir atuendos fuera de nuestra paleta de colores para las fotografías.
+            </p>
           </motion.div>
 
           {/* ── Columna: Que brille la novia ── */}
