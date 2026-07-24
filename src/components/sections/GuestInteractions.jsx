@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const GuestInteractions = ({ phone }) => {
   const songUrl = `https://wa.me/${phone}?text=${encodeURIComponent('¡Hola! Me gustaría sugerir esta canción para la fiesta: ')}`;
-  const wishesUrl = `https://wa.me/${phone}?text=${encodeURIComponent('¡Hola Xiomy-lu y Carlos! Les envío mis mejores deseos: ')}`;
+  const wishesUrl = `https://wa.me/${phone}?text=${encodeURIComponent('¡Hola Sheyla y Iván! Les envío mis mejores deseos: ')}`;
 
   return (
     <section className="py-20 px-6 bg-transparent">

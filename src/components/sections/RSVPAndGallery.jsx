@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const RSVPAndGallery = ({ rsvpConfig, gallery }) => {
-  const whatsappUrl = `https://wa.me/${rsvpConfig.phone}?text=${encodeURIComponent('¡Hola! Confirmo mi asistencia a la boda de Xiomy-lu & Carlos.')}`;
+  const whatsappUrl = `https://wa.me/${rsvpConfig.phone}?text=${encodeURIComponent('¡Hola! Confirmo mi asistencia a la boda de Sheyla & Iván.')}`;
 
   // Definición de las imágenes con su configuración de "Mesa de Arte"
   const galleryImages = [
@@ -47,7 +47,7 @@ const RSVPAndGallery = ({ rsvpConfig, gallery }) => {
           </h3>
 
           {/* GRID: Mosaico Editorial Refinado */}
-          <div className="grid grid-cols-2 gap-[2px] bg-[#FAF3E0]">
+          <div className="grid grid-cols-2 gap-[2px] bg-[#D5E9F1]">
 
             {/* Imagen 1: Protagonista */}
             <div className="col-span-2 aspect-[16/9] overflow-hidden">

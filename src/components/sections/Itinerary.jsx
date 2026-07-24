@@ -24,16 +24,16 @@ const Itinerary = ({ items = [] }) => {
           <p style={{
             fontFamily : "'Parisienne', cursive",
             fontSize   : 30,
-            color      : '#8F5260',
+            color      : '#308FBB',
             lineHeight : 1,
             marginBottom: 8,
           }}>
             El Gran Día
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, margin: '10px 0 16px' }}>
-            <div style={{ width: 44, height: .5, background: 'rgba(94,25,41,.3)' }} />
-            <span style={{ color: '#c5a059', fontSize: 11, letterSpacing: '0.2em' }}>✦ ✦ ✦</span>
-            <div style={{ width: 44, height: .5, background: 'rgba(94,25,41,.3)' }} />
+            <div style={{ width: 44, height: .5, background: 'rgba(23,82,148,.3)' }} />
+            <span style={{ color: '#74B0D3', fontSize: 11, letterSpacing: '0.2em' }}>✦ ✦ ✦</span>
+            <div style={{ width: 44, height: .5, background: 'rgba(23,82,148,.3)' }} />
           </div>
           <h2 style={{
             fontFamily   : "'Playfair Display', serif",
@@ -41,7 +41,7 @@ const Itinerary = ({ items = [] }) => {
             fontWeight   : 700,
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color        : '#5E1929',
+            color        : '#175294',
             lineHeight   : 1.1,
           }}>
             Itinerario
@@ -63,7 +63,7 @@ const Itinerary = ({ items = [] }) => {
               transform      : 'translateX(-50%)',
               top            : 0, bottom: 0,
               width          : 1,
-              background     : 'rgba(94,25,41,.2)',
+              background     : 'rgba(23,82,148,.2)',
               transformOrigin: 'top',
               zIndex         : 1,
             }}
@@ -77,7 +77,6 @@ const Itinerary = ({ items = [] }) => {
               const iconSrc = ICON_MAP[item.icono] || null;
               const delay  = 0.1 + i * 0.1;
 
-              // El ícono siempre va pegado a la línea central, en la columna opuesta al texto
               const ICON_SIZE = 120;
 
               return (
@@ -102,11 +101,11 @@ const Itinerary = ({ items = [] }) => {
                         style={{ textAlign: 'right' }}
                       >
                         <div style={{ display: 'flex', alignItems: 'baseline', gap: 5, justifyContent: 'flex-end', marginBottom: 4 }}>
-                          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#5E1929', lineHeight: 1 }}>{time}</span>
-                          {ampm && <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8F5260', fontWeight: 700 }}>{ampm}</span>}
+                          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#175294', lineHeight: 1 }}>{time}</span>
+                          {ampm && <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#308FBB', fontWeight: 700 }}>{ampm}</span>}
                         </div>
-                        <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D2D2D', marginBottom: 3, lineHeight: 1.35 }}>{item.event}</p>
-                        {item.location && <p style={{ fontFamily: "'Playfair Display',serif", fontSize: 11, fontStyle: 'italic', color: '#8F5260', lineHeight: 1.4 }}>{item.location}</p>}
+                        <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#1D2849', marginBottom: 3, lineHeight: 1.35 }}>{item.event}</p>
+                        {item.location && <p style={{ fontFamily: "'Playfair Display',serif", fontSize: 11, fontStyle: 'italic', color: '#308FBB', lineHeight: 1.4 }}>{item.location}</p>}
                       </motion.div>
                     ) : (
                       /* Ícono pegado al centro, alineado a la derecha */
@@ -133,7 +132,7 @@ const Itinerary = ({ items = [] }) => {
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay }}
-                      style={{ width: 11, height: 11, borderRadius: '50%', background: '#5E1929', flexShrink: 0 }}
+                      style={{ width: 11, height: 11, borderRadius: '50%', background: '#175294', flexShrink: 0 }}
                     />
                   </div>
 
@@ -149,11 +148,11 @@ const Itinerary = ({ items = [] }) => {
                         style={{ textAlign: 'left' }}
                       >
                         <div style={{ display: 'flex', alignItems: 'baseline', gap: 5, marginBottom: 4 }}>
-                          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#5E1929', lineHeight: 1 }}>{time}</span>
-                          {ampm && <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8F5260', fontWeight: 700 }}>{ampm}</span>}
+                          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#175294', lineHeight: 1 }}>{time}</span>
+                          {ampm && <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#308FBB', fontWeight: 700 }}>{ampm}</span>}
                         </div>
-                        <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2D2D2D', marginBottom: 3, lineHeight: 1.35 }}>{item.event}</p>
-                        {item.location && <p style={{ fontFamily: "'Playfair Display',serif", fontSize: 11, fontStyle: 'italic', color: '#8F5260', lineHeight: 1.4 }}>{item.location}</p>}
+                        <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#1D2849', marginBottom: 3, lineHeight: 1.35 }}>{item.event}</p>
+                        {item.location && <p style={{ fontFamily: "'Playfair Display',serif", fontSize: 11, fontStyle: 'italic', color: '#308FBB', lineHeight: 1.4 }}>{item.location}</p>}
                       </motion.div>
                     ) : (
                       /* Ícono pegado al centro, alineado a la izquierda */
@@ -187,12 +186,12 @@ const Itinerary = ({ items = [] }) => {
             style={{ textAlign: 'center', marginTop: 48 }}
           >
             <svg width="180" height="30" viewBox="0 0 180 30" fill="none">
-              <path d="M0 15 Q30 4 60 15 Q90 26 120 15 Q150 4 180 15" stroke="#c5a059" strokeWidth=".8" strokeOpacity=".55" fill="none"/>
-              <circle cx="90"  cy="15" r="3"   fill="#c5a059" fillOpacity=".7"/>
-              <circle cx="58"  cy="20" r="1.8" fill="#c5a059" fillOpacity=".4"/>
-              <circle cx="122" cy="20" r="1.8" fill="#c5a059" fillOpacity=".4"/>
-              <circle cx="30"  cy="12" r="1.2" fill="#c5a059" fillOpacity=".3"/>
-              <circle cx="150" cy="12" r="1.2" fill="#c5a059" fillOpacity=".3"/>
+              <path d="M0 15 Q30 4 60 15 Q90 26 120 15 Q150 4 180 15" stroke="#74B0D3" strokeWidth=".8" strokeOpacity=".55" fill="none"/>
+              <circle cx="90"  cy="15" r="3"   fill="#74B0D3" fillOpacity=".7"/>
+              <circle cx="58"  cy="20" r="1.8" fill="#74B0D3" fillOpacity=".4"/>
+              <circle cx="122" cy="20" r="1.8" fill="#74B0D3" fillOpacity=".4"/>
+              <circle cx="30"  cy="12" r="1.2" fill="#74B0D3" fillOpacity=".3"/>
+              <circle cx="150" cy="12" r="1.2" fill="#74B0D3" fillOpacity=".3"/>
             </svg>
           </motion.div>
 

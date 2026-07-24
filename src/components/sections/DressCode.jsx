@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const DressCode = ({ data }) => {
-  const paletteColors = ['#5E1929', '#8F5260', '#F8F0E5', '#DCAEBA'];
+  const paletteColors = ['#1D2849', '#175294', '#308FBB', '#74B0D3', '#D5E9F1'];
 
-  // Colores claros que se confunden con el fondo crema → les damos borde visible
-  const LIGHT_COLORS = new Set(['#F8F0E5', '#f8f0e5']);
+  // Colores claros que se confunden con el fondo -> les damos borde visible
+  const LIGHT_COLORS = new Set(['#D5E9F1', '#d5e9f1']);
   const getBorder = (color) =>
     LIGHT_COLORS.has(color)
-      ? '2px solid rgba(94,25,41,0.28)'
+      ? '2px solid rgba(23,82,148,0.28)'
       : '2px solid transparent';
 
   return (
@@ -27,7 +27,7 @@ const DressCode = ({ data }) => {
           </p>
           <div className="flex items-center justify-center gap-3 my-3">
             <div className="w-11 h-px bg-wedding-primary/30" />
-            <span className="text-wedding-gold text-[11px] tracking-[0.2em]">✦ ✦ ✦</span>
+            <span className="text-[#74B0D3] text-[11px] tracking-[0.2em]">✦ ✦ ✦</span>
             <div className="w-11 h-px bg-wedding-primary/30" />
           </div>
           <h2 className="text-3xl md:text-5xl font-serif font-bold uppercase tracking-[0.14em] text-wedding-primary">
@@ -57,7 +57,7 @@ const DressCode = ({ data }) => {
                   />
                 </div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-wedding-secondary">Hombres</p>
-                <p className="text-sm font-sans text-wedding-dark mt-1">{data.men}</p>
+                <p className="text-sm font-sans text-wedding-dark mt-1">{data?.men || 'Traje'}</p>
               </div>
 
               {/* Vestido */}
@@ -71,7 +71,7 @@ const DressCode = ({ data }) => {
                   />
                 </div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-wedding-secondary">Mujeres</p>
-                <p className="text-sm font-sans text-wedding-dark mt-1">{data.women}</p>
+                <p className="text-sm font-sans text-wedding-dark mt-1">{data?.women || 'Vestido'}</p>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ const DressCode = ({ data }) => {
           >
             <div className="flex items-center justify-center gap-3 mb-1">
               <div className="w-8 h-px bg-wedding-primary/30" />
-              <span className="text-wedding-gold text-[11px]">✦</span>
+              <span className="text-[#74B0D3] text-[11px]">✦</span>
               <div className="w-8 h-px bg-wedding-primary/30" />
             </div>
 
@@ -129,7 +129,7 @@ const DressCode = ({ data }) => {
 
             <div className="flex items-center justify-center gap-3 mt-1">
               <div className="w-8 h-px bg-wedding-primary/30" />
-              <span className="text-wedding-gold text-[11px]">✦</span>
+              <span className="text-[#74B0D3] text-[11px]">✦</span>
               <div className="w-8 h-px bg-wedding-primary/30" />
             </div>
           </motion.div>

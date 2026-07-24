@@ -286,8 +286,8 @@ export const WelcomeCover = ({ onOpen }) => {
               <path d="M0,0 L140,100 L0,192Z"   fill="url(#wc-fl)" opacity=".5"/>
               <path d="M280,0 L140,100 L280,192Z" fill="url(#wc-fr)" opacity=".5"/>
               <path d="M0,192 L140,100 L280,192Z" fill="#BBA878" opacity=".28"/>
-              <rect x="0" y="0" width="280" height="192" rx="3" fill="none" stroke="#5E1929" strokeWidth=".5" strokeOpacity=".18"/>
-              <rect x="9" y="9" width="262" height="174" rx="1" fill="none" stroke="#c5a059" strokeWidth=".3" strokeOpacity=".22"/>
+              <rect x="0" y="0" width="280" height="192" rx="3" fill="none" stroke="#175294" strokeWidth=".5" strokeOpacity=".18"/>
+              <rect x="9" y="9" width="262" height="174" rx="1" fill="none" stroke="#74B0D3" strokeWidth=".3" strokeOpacity=".22"/>
             </svg>
 
             {/* Solapa 3D */}
@@ -306,11 +306,11 @@ export const WelcomeCover = ({ onOpen }) => {
                     <stop offset="100%" stopColor="#CABB99"/>
                   </linearGradient>
                 </defs>
-                <path d="M0,0 L140,100 L280,0Z" fill="url(#wc-fp)" stroke="#5E1929" strokeWidth=".5" strokeOpacity=".18"/>
+                <path d="M0,0 L140,100 L280,0Z" fill="url(#wc-fp)" stroke="#175294" strokeWidth=".5" strokeOpacity=".18"/>
                 <path d="M0,0 L140,100 L280,0Z" fill="#C0AD85" opacity=".14"/>
                 <text x="140" y="30" textAnchor="middle"
                   fontFamily="'IM Fell English SC',serif" fontSize="8"
-                  fill="#c5a059" fillOpacity=".55" letterSpacing="5">
+                  fill="#74B0D3" fillOpacity=".55" letterSpacing="5">
                   ✦  ✦  ✦
                 </text>
               </svg>
@@ -364,11 +364,11 @@ export const WelcomeCover = ({ onOpen }) => {
             <span style={{
               fontFamily  : "'IM Fell English SC', serif",
               fontSize    : '9px', letterSpacing: '.48em',
-              color       : '#5E1929', textTransform: 'uppercase',
+              color       : '#175294', textTransform: 'uppercase',
             }}>
               Abrir Invitación
             </span>
-            <div style={{ width: 84, height: '.5px', background: 'rgba(94,25,41,.4)' }} />
+            <div style={{ width: 84, height: '.5px', background: 'rgba(23,82,148,.4)' }} />
           </div>
 
         </div>

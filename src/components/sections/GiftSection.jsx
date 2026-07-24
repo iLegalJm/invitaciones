@@ -45,7 +45,7 @@ export const GiftSection = ({ giftData }) => {
 
           <div className="relative z-20">
             <h3 className="text-lg md:text-xl font-serif text-wedding-primary uppercase tracking-[0.2em] mb-10">
-              Cuenta Mancomunada<br />Xiomy & Carlos
+              Cuenta Mancomunada<br />Sheyla & Iván
             </h3>
 
             <div className="space-y-10">

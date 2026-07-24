@@ -34,26 +34,26 @@ export const HeroSection = ({ data }) => {
           ref={photoRef}
           className="absolute inset-0 bg-cover scale-100"
           style={{
-            backgroundImage   : `url('./assets/images/fotoxiomycarlos2.jpg')`,
-            backgroundPosition: '40% center',
+            backgroundImage   : `url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070')`,
+            backgroundPosition: 'center',
             willChange        : 'transform',
           }}
         />
       </div>
 
       {/* Capa oscura base */}
-      <div className="absolute inset-0 bg-black/35" />
+      <div className="absolute inset-0 bg-[#1D2849]/50" />
 
-      {/* Luz cálida central (efecto vela editorial) */}
+      {/* Luz central */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 60% 55% at 50% 38%, rgba(197,160,89,0.13) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 60% 55% at 50% 38%, rgba(116,176,211,0.18) 0%, transparent 70%)',
         }}
       />
 
-      {/* Gradiente inferior → crema */}
-      <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-wedding-cream via-wedding-cream/55 to-transparent" />
+      {/* Gradiente inferior */}
+      <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#D5E9F1] via-[#D5E9F1]/55 to-transparent" />
 
       {/* ── Contenido ── */}
       <div className="relative z-10 w-full max-w-lg mx-auto flex flex-col items-center gap-6 py-16">
@@ -61,7 +61,7 @@ export const HeroSection = ({ data }) => {
         {/* Línea ornamental superior */}
         <motion.div {...revealMask(0.3)} className="flex items-center gap-3 w-48">
           <div className="flex-1 h-px bg-white/40" />
-          <span style={{ color: '#dfc08d', fontSize: 10, letterSpacing: '0.1em' }}>✦</span>
+          <span style={{ color: '#74B0D3', fontSize: 10, letterSpacing: '0.1em' }}>✦</span>
           <div className="flex-1 h-px bg-white/40" />
         </motion.div>
 
@@ -82,15 +82,15 @@ export const HeroSection = ({ data }) => {
           {data.bride.name}
         </motion.h1>
 
-        {/* & dorado */}
+        {/* & */}
         <motion.div {...fadeUp(1.1, 0)} className="flex flex-col items-center gap-1">
           <div className="w-px h-5 bg-white/25" />
           <span
             className="font-script leading-none drop-shadow-md"
             style={{
               fontSize: 'clamp(2rem, 8vw, 3rem)',
-              color   : '#dfc08d',
-              filter  : 'drop-shadow(0 2px 6px rgba(197,160,89,0.4))',
+              color   : '#74B0D3',
+              filter  : 'drop-shadow(0 2px 6px rgba(116,176,211,0.4))',
             }}
           >
             &amp;
@@ -110,7 +110,7 @@ export const HeroSection = ({ data }) => {
         {/* Separador ornamental */}
         <motion.div {...revealMask(1.7)} className="flex items-center gap-3 w-56 mt-2">
           <div className="flex-1 h-px bg-white/30" />
-          <span style={{ color: '#dfc08d', fontSize: 9, letterSpacing: '0.35em' }}>✦ ✦ ✦</span>
+          <span style={{ color: '#74B0D3', fontSize: 9, letterSpacing: '0.35em' }}>✦ ✦ ✦</span>
           <div className="flex-1 h-px bg-white/30" />
         </motion.div>
 
@@ -131,7 +131,7 @@ export const HeroSection = ({ data }) => {
             className="font-serif text-white font-medium drop-shadow-md uppercase"
             style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)', letterSpacing: '0.38em' }}
           >
-            08 · Agosto
+            22 · Agosto
           </p>
           <p
             className="font-serif text-white/75 font-light drop-shadow-md"
@@ -144,7 +144,7 @@ export const HeroSection = ({ data }) => {
         {/* Línea ornamental inferior */}
         <motion.div {...revealMask(2.9)} className="flex items-center gap-3 w-48 mt-2">
           <div className="flex-1 h-px bg-white/30" />
-          <span style={{ color: '#dfc08d', fontSize: 10 }}>✦</span>
+          <span style={{ color: '#74B0D3', fontSize: 10 }}>✦</span>
           <div className="flex-1 h-px bg-white/30" />
         </motion.div>
 
@@ -158,19 +158,17 @@ export const HeroSection = ({ data }) => {
         transition={{ delay: 3.5, duration: 1 }}
         onClick={() => window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' })}
       >
-        {/* Línea pulsante */}
         <motion.div
           className="w-px bg-gradient-to-b from-transparent via-white/60 to-white/20"
           animate={{ height: [20, 36, 20], opacity: [0.4, 0.9, 0.4] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         />
-        {/* Rombo */}
         <motion.div
           style={{
             width : 7, height: 7,
-            background  : '#dfc08d',
+            background  : '#74B0D3',
             transform   : 'rotate(45deg)',
-            boxShadow   : '0 0 6px rgba(197,160,89,0.6)',
+            boxShadow   : '0 0 6px rgba(116,176,211,0.6)',
           }}
           animate={{ opacity: [0.5, 1, 0.5], scale: [0.8, 1.1, 0.8] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}

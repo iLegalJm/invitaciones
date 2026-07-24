@@ -111,7 +111,7 @@ const WishesAndSongs = () => {
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0 }}
-                                            className="text-xs italic text-[#5E1929]"
+                                            className="text-xs italic text-[#175294]"
                                         >
                                             ¡Guardado con amor!
                                         </motion.span>
@@ -179,7 +179,7 @@ const WishesAndSongs = () => {
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0 }}
-                                            className="text-xs italic text-[#5E1929]"
+                                            className="text-xs italic text-[#175294]"
                                         >
                                             ¡Añadida a la playlist!
                                         </motion.span>

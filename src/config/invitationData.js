@@ -1,19 +1,16 @@
 /**
- * Configuración Maestra de la Invitación (Senior Version)
- * Centraliza diseño, contenido y metadatos para SEO/Accesibilidad.
- */
-
-/**
- * Configuración Maestra de la Invitación: Xiomy-lu & Carlos
+ * Configuración Maestra de la Invitación: Sheyla & Iván
+ * Centraliza diseño, contenido y metadatos para la boda.
  */
 
 export const invitationData = {
     settings: {
         theme: {
-            primary: '#5E1929',
-            secondary: '#8F5260',
-            cream: '#FAF3E0',
-            accent: '#EBD9D9',
+            dark: '#1D2849',
+            primary: '#175294',
+            secondary: '#308FBB',
+            accent: '#74B0D3',
+            cream: '#D5E9F1',
             fonts: {
                 titles: "'Playfair Display', serif",
                 body: "'Montserrat', sans-serif"
@@ -21,8 +18,8 @@ export const invitationData = {
         },
         language: 'es',
         seo: {
-            title: "Xiomy-lu & Carlos - ¡Nuestra Boda!",
-            description: "Acompáñanos a celebrar nuestra unión el 8 de agosto de 2026.",
+            title: "Sheyla & Iván - ¡Nuestra Boda!",
+            description: "Acompáñanos a celebrar nuestra unión el 22 de agosto del 2026.",
             ogImage: "./assets/og-image.jpg"
         }
     },
@@ -35,57 +32,54 @@ export const invitationData = {
         family: {
             bride: {
                 label: "Padres de la Novia",
-                parents: ["Luisa Antezana Gutarra", "Carlos Valderrama Delgadillo"]
+                parents: ["Padres por definir"]
             },
             groom: {
                 label: "Padres del Novio",
-                parents: ["Lily Nieto de Mamani", "Eusebio Mamani Cárdenas"]
+                parents: ["Padres por definir"]
             },
             godparents: {
                 label: "Padrinos de Boda",
-                people: ["Berta Ramos Meneses", "Jaime Puycón Panta"]
+                people: ["Padrinos por definir"]
             }
         },
         itinerary: [
-            { time: "11:30 am", event: "Ceremonia Religiosa", location: "Parroquia San Antonio de Padua", icono: "iglesia" },
-            {
-                time: "01:15 pm", // Hora aproximada de salida
-                event: "Traslado de Invitados",
-                location: "Bus disponible hacia Huachipa",
-                icono: "bus" // Puedes usar un icono de transporte
-            },
-            { time: "03:00 pm", event: "Ceremonia Civil", location: "La Residencia de Huachipa", icono: "civil" },
-            { time: "03:30 pm", event: "Recepción", location: "Buffet y Fiesta", icono: "brindis" },
-            // { time: "04:30 pm", event: "Almuerzo de Celebración", location: "La Residencia de Huachipa", icono: "comida" }
+            { time: "04:30 pm", event: "Ceremonia", location: "Aún por definir", icono: "iglesia" },
+            { time: "07:00 pm", event: "Recepción", location: "Aún por definir", icono: "civil" },
+            { time: "08:00 pm", event: "Baile", location: "", icono: "civil" },
+            { time: "08:20 pm", event: "Brindis", location: "", icono: "brindis" },
+            { time: "08:30 pm", event: "Foto", location: "", icono: "civil" },
+            { time: "09:00 pm", event: "Cena", location: "", icono: "civil" },
+            { time: "10:00 pm", event: "Fiesta", location: "", icono: "brindis" }
         ],
-        deadline: "2026-07-01",
+        deadline: "2026-07-22",
         groom: {
-            name: "Carlos",
+            name: "Iván",
             lastName: "",
         },
         bride: {
-            name: "Xiomy-lu",
+            name: "Sheyla",
             lastName: "",
         },
         date: {
-            iso: "2026-08-08T11:30:00",
-            display: "Sábado, 08 de Agosto del 2026",
+            iso: "2026-08-22T16:30:00",
+            display: "Sábado, 22 de Agosto del 2026",
             year: "2026"
         },
         locations: {
             religious: {
                 title: "Ceremonia Religiosa",
-                time: "11:30 am",
-                name: "Parroquia San Antonio de Padua",
-                address: "Av. San Felipe 571, Jesús María - Lima",
-                googleMaps: "https://maps.app.goo.gl/7bMiwqL13HHK9kU58"
+                time: "04:30 pm",
+                name: "Aún por definir",
+                address: "Dirección por definir",
+                googleMaps: "#"
             },
             civil: {
-                title: "Ceremonia Civil y Recepción",
-                time: "03:00 pm",
-                name: "La Residencia de Huachipa",
-                address: "Av. Los Cisnes Mz I-2 Lte. 21, Huachipa - Lima",
-                googleMaps: "https://maps.app.goo.gl/K3GN2ds11bFgSVDX7"
+                title: "Recepción",
+                time: "07:00 pm",
+                name: "Aún por definir",
+                address: "Dirección por definir",
+                googleMaps: "#"
             }
         }
     },
@@ -97,13 +91,12 @@ export const invitationData = {
         },
         music: {
             url: "./assets/music/cancion.mp3",
-            title: "Iris - Goo Goo Dolls"
+            title: "Música de fondo"
         },
         rsvp: {
-            deadline: "2026-07-01",
-            contactName: "Annie",
-            // phone: "51901336096",
-            phone: "51906299923",
+            deadline: "2026-07-22",
+            contactName: "Sheyla e Iván",
+            phone: "",
             fields: {
                 name: "Nombre y Apellido",
                 attending: "¿Asistirás?",
@@ -123,16 +116,11 @@ export const invitationData = {
             title: "Mesa de Regalos",
             description: "Tu presencia es nuestro mejor regalo, pero si deseas hacernos un presente, puedes hacerlo aquí:",
             accounts: [
-                { name: "BBVA Soles", number: "0011-0119-0200485316" },
-                { name: "CCI BBVA", number: "011-119-000200485316-50" }
+                { name: "Por definir", number: "-" }
             ]
         },
-        gallery: [
-            { url: "./assets/images/DSC_3036.jpg", caption: "" },
-            { url: "./assets/images/v3_m.jpg", caption: "" },
-            { url: "./assets/images/h3_m.jpeg", caption: "" },
-            { url: "./assets/images/IMG_5165.jpg", caption: "" },
-            { url: "./assets/images/v4_m.jpeg", caption: "" }
-        ]
+        gallery: []
     }
 };
+
+export default invitationData;

@@ -8,23 +8,23 @@ export default {
     extend: {
       colors: {
         wedding: {
-          primary: '#5E1929',
-          secondary: '#8F5260',
-          cream: '#FAF3E0',
-          accent: '#EBD9D9',
-          dark: '#2D2D2D',
+          dark: '#1D2849',       // Azul marino oscuro
+          primary: '#175294',    // Azul rey principal
+          secondary: '#308FBB',  // Azul medio
+          accent: '#74B0D3',     // Azul claro
+          cream: '#D5E9F1',      // Azul hielo / Fondo suave
           gold: {
-            light: '#dfc08d',
-            DEFAULT: '#c5a059',
-            dark: '#a3844a',
+            light: '#74B0D3',
+            DEFAULT: '#308FBB',
+            dark: '#175294',
           },
-          olive: '#4a5d4e',
+          olive: '#1D2849',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],    // Para párrafos y datos técnicos
-        serif: ['Playfair Display', 'serif'], // Para títulos elegantes
-        script: ['Parisienne', 'cursive'],  // EXCLUSIVA para nombres destacados
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        script: ['Parisienne', 'cursive'],
       },
       backgroundImage: {
         'parallax-pattern': "url('/assets/images/pattern.png')",

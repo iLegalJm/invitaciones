@@ -48,7 +48,7 @@ const RSVP = ({ data }) => {
   };
 
   return (
-    <section className="py-12 px-6 bg-[#FAF3E0]/30 border-t border-wedding-secondary/10 text-center">
+    <section className="py-12 px-6 bg-[#D5E9F1]/30 border-t border-wedding-secondary/10 text-center">
       <div className="max-w-xl mx-auto space-y-10">
 
         {/* ── Encabezado ── */}
@@ -63,7 +63,7 @@ const RSVP = ({ data }) => {
           </span>
           <div className="flex items-center justify-center gap-3">
             <div className="w-11 h-px bg-wedding-secondary/30" />
-            <span className="text-wedding-gold text-[11px]">✦</span>
+            <span className="text-[#74B0D3] text-[11px]">✦</span>
             <div className="w-11 h-px bg-wedding-secondary/30" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-wedding-primary italic">

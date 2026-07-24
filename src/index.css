@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --wedding-gold: #c5a059;
-  --wedding-cream: #FAF3E0;
+  --wedding-primary: #175294;
+  --wedding-secondary: #308FBB;
+  --wedding-accent: #74B0D3;
+  --wedding-dark: #1D2849;
+  --wedding-cream: #D5E9F1;
 }
 
 body {
@@ -12,6 +15,6 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FAF3E0;
-  font-family: 'Parisienne', cursive;
+  background-color: #D5E9F1;
+  font-family: 'Inter', sans-serif;
 }

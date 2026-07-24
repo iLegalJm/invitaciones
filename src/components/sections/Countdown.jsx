@@ -29,7 +29,7 @@ const Countdown = ({ data }) => {
   }, [data.date.iso]);
 
   // Configuración del evento
-  const title = "Boda de Xiomy-lu & Carlos";
+  const title = `Boda de ${data?.bride?.name || 'Sheyla'} & ${data?.groom?.name || 'Iván'}`;
   const details = "Te invitamos a celebrar nuestro gran día.";
   const location = data.location || "Lima, Perú"; 
   const startDate = new Date(data.date.iso);
