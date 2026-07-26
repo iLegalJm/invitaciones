@@ -45,7 +45,7 @@ export const invitationData = {
         },
         itinerary: [
             { time: "04:30 pm", event: "Ceremonia", location: "Aún por definir", icono: "iglesia" },
-            { time: "07:00 pm", event: "Recepción", location: "Aún por definir", icono: "civil" },
+            { time: "07:00 pm", event: "Recepción", location: "La Residencia de Huachipa", icono: "civil" },
             { time: "08:00 pm", event: "Baile", location: "", icono: "civil" },
             { time: "08:20 pm", event: "Brindis", location: "", icono: "brindis" },
             { time: "08:30 pm", event: "Foto", location: "", icono: "civil" },
@@ -77,9 +77,9 @@ export const invitationData = {
             civil: {
                 title: "Recepción",
                 time: "07:00 pm",
-                name: "Aún por definir",
-                address: "Dirección por definir",
-                googleMaps: "#"
+                name: "La Residencia de Huachipa",
+                address: "Av. Los Cisnes Mz I-2 Lte. 21, Huachipa - Lima",
+                googleMaps: "https://maps.app.goo.gl/K3GN2ds11bFgSVDX7"
             }
         }
     },
