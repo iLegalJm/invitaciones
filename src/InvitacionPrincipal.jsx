@@ -92,7 +92,7 @@ export const InvitacionPrincipal = () => {
 
       <AnimatePresence mode="wait">
         {!isOpened ? (
-          <WelcomeCover onOpen={handleOpen} />
+          <WelcomeCover onOpen={handleOpen} theme={theme.boda} />
         ) : (
           <motion.div
             key="content"

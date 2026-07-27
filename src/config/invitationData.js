@@ -26,7 +26,7 @@ export const invitationData = {
 
     event: {
         quote: {
-            text: "El amor no tiene que ser perfecto, solo tiene que ser real.",
+            text: "El mejor viaje de nuestras vidas comienza aquí.",
             verse: "Nuestra Historia"
         },
         family: {
@@ -70,9 +70,9 @@ export const invitationData = {
             religious: {
                 title: "Ceremonia Religiosa",
                 time: "04:30 pm",
-                name: "Aún por definir",
-                address: "Dirección por definir",
-                googleMaps: "#"
+                name: "Parroquia San Pedro",
+                address: "Santuario Arquidiocesano del Corazón de Jesús, Centro de Lima",
+                googleMaps: "https://maps.app.goo.gl/VT7UHitcxEXcZCta7?g_st=ic"
             },
             civil: {
                 title: "Recepción",

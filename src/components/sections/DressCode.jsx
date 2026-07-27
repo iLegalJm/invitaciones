@@ -4,88 +4,76 @@ import { motion } from 'framer-motion';
 const DressCode = ({ data }) => {
   const paletteColors = ['#1D2849', '#175294', '#308FBB', '#74B0D3', '#D5E9F1'];
 
-  // Colores claros que se confunden con el fondo -> les damos borde visible
   const LIGHT_COLORS = new Set(['#D5E9F1', '#d5e9f1']);
   const getBorder = (color) =>
     LIGHT_COLORS.has(color)
       ? '2px solid rgba(23,82,148,0.28)'
       : '2px solid transparent';
 
+  // Filtro CSS para convertir íconos al color primario de la boda
+  const iconFilter = 'brightness(0) saturate(100%) invert(13%) sepia(21%) saturate(2333%) hue-rotate(188deg) brightness(95%) contrast(92%)';
+
   return (
     <section className="py-12 px-6 bg-transparent text-center">
       <div className="max-w-4xl mx-auto">
-
-        {/* ── Encabezado ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-8"
+          className="p-8 md:p-14 bg-white/40 backdrop-blur-sm border border-wedding-secondary/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-tr-[3rem] rounded-bl-[3rem] space-y-12"
         >
-          <p className="font-script text-3xl text-wedding-secondary mb-2 leading-none">
-            Código de Vestimenta
-          </p>
-          <div className="flex items-center justify-center gap-3 my-3">
-            <div className="w-11 h-px bg-wedding-primary/30" />
-            <span className="text-[#74B0D3] text-[11px] tracking-[0.2em]">✦ ✦ ✦</span>
-            <div className="w-11 h-px bg-wedding-primary/30" />
+
+          {/* ── Encabezado ── */}
+          <div className="space-y-3">
+            <span className="text-wedding-secondary uppercase tracking-[0.4em] text-[9px] block font-bold">
+              Código de Vestimenta
+            </span>
+            <div className="flex items-center justify-center gap-3 my-2">
+              <div className="w-11 h-px bg-wedding-secondary/30" />
+              <span className="text-[#74B0D3] text-[11px]">✦ ✦ ✦</span>
+              <div className="w-11 h-px bg-wedding-secondary/30" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-serif text-wedding-primary italic">
+              Formal
+            </h2>
           </div>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold uppercase tracking-[0.14em] text-wedding-primary">
-            Etiqueta
-          </h2>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 items-start">
+          {/* ── Bloque de Atuendos (Hombres / Mujeres) ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center items-center max-w-lg mx-auto border-b border-wedding-secondary/20 pb-10">
 
-          {/* ── Columna Formal ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
-          >
-            <div className="flex justify-center gap-2">
-
-              {/* Traje */}
-              <div className="flex flex-col items-center group">
-                <div className="w-40 h-40 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="./assets/images/icon/traje.png"
-                    alt="Traje formal"
-                    className="w-full h-full object-contain"
-                    style={{ mixBlendMode: 'multiply' }}
-                  />
-                </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-wedding-secondary">Hombres</p>
-                <p className="text-sm font-sans text-wedding-dark mt-1">{data?.men || 'Traje'}</p>
+            {/* Traje */}
+            <div className="flex flex-col items-center group">
+              <div className="w-20 h-20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                <img
+                  src="./assets/images/icon/traje.png"
+                  alt="Traje formal"
+                  className="w-full h-full object-contain"
+                  style={{ filter: iconFilter, mixBlendMode: 'multiply' }}
+                />
               </div>
-
-              {/* Vestido */}
-              <div className="flex flex-col items-center group">
-                <div className="w-40 h-40 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <img
-                    src="./assets/images/icon/vestido.png"
-                    alt="Vestido formal"
-                    className="w-full h-full object-contain"
-                    style={{ mixBlendMode: 'multiply' }}
-                  />
-                </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-wedding-secondary">Mujeres</p>
-                <p className="text-sm font-sans text-wedding-dark mt-1">{data?.women || 'Vestido'}</p>
-              </div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-wedding-secondary">Hombres</p>
+              <p className="text-sm font-sans font-semibold text-wedding-primary mt-1">{data?.men || 'Traje'}</p>
             </div>
 
-            <p className="text-wedding-primary font-serif italic text-3xl tracking-widest">FORMAL</p>
-          </motion.div>
+            {/* Vestido */}
+            <div className="flex flex-col items-center group">
+              <div className="w-20 h-20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                <img
+                  src="./assets/images/icon/vestido.png"
+                  alt="Vestido formal"
+                  className="w-full h-full object-contain"
+                  style={{ filter: iconFilter, mixBlendMode: 'multiply' }}
+                />
+              </div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-wedding-secondary">Mujeres</p>
+              <p className="text-sm font-sans font-semibold text-wedding-primary mt-1">{data?.women || 'Vestido de gala'}</p>
+            </div>
 
-          {/* ── Columna Paleta ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-6 flex flex-col items-center justify-center h-full"
-          >
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-wedding-secondary mb-2">
+          </div>
+
+          {/* ── Bloque de Paleta Sugerida ── */}
+          <div className="space-y-4 max-w-md mx-auto">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-wedding-secondary">
               Paleta sugerida
             </p>
             <div className="flex justify-center -space-x-2">
@@ -96,44 +84,27 @@ const DressCode = ({ data }) => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.1 * i }}
-                  className="w-11 h-11 rounded-full relative z-10 hover:z-20 hover:scale-110 transition-transform shadow-sm"
+                  className="w-10 h-10 rounded-full relative z-10 hover:z-20 hover:scale-110 transition-transform shadow-sm"
                   style={{ backgroundColor: color, border: getBorder(color) }}
                 />
               ))}
             </div>
-            <p className="text-xs text-wedding-secondary font-sans max-w-[260px] leading-relaxed italic">
+            <p className="text-xs text-wedding-secondary font-sans italic leading-relaxed">
               Sugerimos elegir atuendos fuera de nuestra paleta de colores para las fotografías.
             </p>
-          </motion.div>
+          </div>
 
-          {/* ── Columna: Que brille la novia ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-6 flex flex-col items-center justify-center h-full"
-          >
-            <div className="flex items-center justify-center gap-3 mb-1">
-              <div className="w-8 h-px bg-wedding-primary/30" />
-              <span className="text-[#74B0D3] text-[11px]">✦</span>
-              <div className="w-8 h-px bg-wedding-primary/30" />
-            </div>
-
-            <p className="font-script text-4xl md:text-5xl text-wedding-primary leading-tight">
+          {/* ── Bloque: Que solo la novia brille ── */}
+          <div className="pt-6 border-t border-wedding-secondary/20 max-w-md mx-auto space-y-3">
+            <h3 className="font-script text-3xl md:text-4xl text-wedding-primary leading-tight">
               Que solo la novia brille
-            </p>
-
-            <p className="text-xs md:text-sm text-wedding-secondary font-sans max-w-[280px] leading-relaxed">
+            </h3>
+            <p className="text-xs md:text-sm text-wedding-secondary font-sans leading-relaxed">
               Por favor, evita el <span className="font-bold text-wedding-primary">color blanco</span> en tu atuendo. Reservemos ese color especial para ella en su gran día.
             </p>
+          </div>
 
-            <div className="flex items-center justify-center gap-3 mt-1">
-              <div className="w-8 h-px bg-wedding-primary/30" />
-              <span className="text-[#74B0D3] text-[11px]">✦</span>
-              <div className="w-8 h-px bg-wedding-primary/30" />
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

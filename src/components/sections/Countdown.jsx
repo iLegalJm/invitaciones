@@ -5,7 +5,6 @@ const Countdown = ({ data }) => {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [showMenu, setShowMenu] = useState(false);
 
-  // Lógica del temporizador
   useEffect(() => {
     const targetDate = new Date(data.date.iso).getTime();
     const interval = setInterval(() => {
@@ -28,23 +27,20 @@ const Countdown = ({ data }) => {
     return () => clearInterval(interval);
   }, [data.date.iso]);
 
-  // Configuración del evento
   const title = `Boda de ${data?.bride?.name || 'Sheyla'} & ${data?.groom?.name || 'Iván'}`;
   const details = "Te invitamos a celebrar nuestro gran día.";
   const location = data.location || "Lima, Perú"; 
   const startDate = new Date(data.date.iso);
-  const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000); // 2 horas de duración
+  const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000); 
 
   const formatDate = (date) => date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
 
-  // 1. Google Calendar
   const handleGoogle = () => {
     const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
     window.open(url, "_blank");
     setShowMenu(false);
   };
 
-  // 2. Apple / Outlook (.ics)
   const handleApple = () => {
     const icsContent = [
       "BEGIN:VCALENDAR", "VERSION:2.0", "BEGIN:VEVENT",
@@ -75,20 +71,37 @@ const Countdown = ({ data }) => {
 
   return (
     <section className="py-12 px-6 bg-transparent">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+      <div className="max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }}
+          className="p-8 md:p-12 bg-white/40 backdrop-blur-sm border border-wedding-secondary/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-tr-[3rem] rounded-bl-[3rem] text-center"
+        >
           
-          <div className="flex justify-center gap-6 md:gap-12 mb-12">
+          {/* Título y texto descriptivo */}
+          <div className="mb-10 space-y-3">
+            <h2 className="font-script text-4xl md:text-5xl text-wedding-primary leading-tight">
+              Falta muy poco
+            </h2>
+            <p className="font-serif text-sm md:text-base text-wedding-secondary max-w-md mx-auto italic leading-relaxed">
+              Con gran emoción, esperamos que llegue el momento de celebrar el inicio de nuestra nueva vida juntos.
+            </p>
+          </div>
+
+          {/* Temporizador */}
+          <div className="flex justify-center gap-6 md:gap-12 mb-10">
             <TimeBox value={timeLeft.d} label="Días" />
             <TimeBox value={timeLeft.h} label="Horas" />
             <TimeBox value={timeLeft.m} label="Min" />
             <TimeBox value={timeLeft.s} label="Seg" />
           </div>
 
+          {/* Botón de Calendario */}
           <div className="relative inline-block">
             <button 
               onClick={() => setShowMenu(!showMenu)}
-              className="px-8 py-3 border border-wedding-primary/30 text-wedding-primary uppercase text-[10px] tracking-[0.3em] hover:border-wedding-primary transition-all duration-300"
+              className="px-8 py-3 bg-white/60 border border-wedding-primary text-wedding-primary uppercase text-[10px] tracking-[0.3em] hover:bg-wedding-primary hover:text-white transition-all duration-300 rounded-full"
             >
               Agregar a Calendario
             </button>
@@ -99,10 +112,10 @@ const Countdown = ({ data }) => {
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white shadow-xl border border-gray-100 z-50 flex flex-col rounded-md overflow-hidden"
                 >
-                  <button onClick={handleGoogle} className="p-3 text-[10px] uppercase hover:bg-gray-50 text-left border-b border-gray-100">
+                  <button onClick={handleGoogle} className="p-3 text-[10px] uppercase hover:bg-gray-50 text-left border-b border-gray-100 text-wedding-primary font-bold">
                     Google Calendar
                   </button>
-                  <button onClick={handleApple} className="p-3 text-[10px] uppercase hover:bg-gray-50 text-left">
+                  <button onClick={handleApple} className="p-3 text-[10px] uppercase hover:bg-gray-50 text-left text-wedding-primary font-bold">
                     Apple / Outlook (.ics)
                   </button>
                 </motion.div>
